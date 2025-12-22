@@ -1,0 +1,82 @@
+# ===============================
+# Node / NPM
+# ===============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===============================
+# TypeScript
+# ===============================
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# ===============================
+# Playwright
+# ===============================
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+
+# Video / Trace / Screenshot
+**/*.webm
+**/*.zip
+**/*.png
+**/*.jpg
+**/*.jpeg
+
+# ===============================
+# Cucumber / Playwright-BDD
+# ===============================
+.features-gen/
+reports/
+cucumber-report/
+
+# ===============================
+# Allure Reporting
+# ===============================
+allure-results/
+allure-report/
+
+# ===============================
+# Environment variables
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# IDE / Editor
+# ===============================
+.vscode/
+.idea/
+*.iml
+
+# ===============================
+# OS
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Logs
+# ===============================
+logs/
+*.log
+
+# ===============================
+# Coverage
+# ===============================
+coverage/
+
+# ===============================
+# Temporary files
+# ===============================
+.tmp/
+temp/
+.cache/

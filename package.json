@@ -1,0 +1,26 @@
+{
+  "name": "sauce-demo",
+  "version": "1.0.0",
+  "description": "![Playwright](https://img.shields.io/badge/Playwright-Test-green) ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue) ![Cucumber](https://img.shields.io/badge/Cucumber-BDD-23d160) ![Node.js](https://img.shields.io/badge/Node.js-18%2B-orange)",
+  "scripts": {
+    "test": "npx bddgen && npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiennh93/2025-Playwright-Swag-Labs-Demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tiennh93/2025-Playwright-Swag-Labs-Demo/issues"
+  },
+  "homepage": "https://github.com/tiennh93/2025-Playwright-Swag-Labs-Demo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "allure-playwright": "^3.4.3",
+    "playwright-bdd": "^8.4.2",
+    "typescript": "^5.9.3"
+  }
+}
