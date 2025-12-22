@@ -6,7 +6,7 @@
 ![Allure](https://img.shields.io/badge/Allure-Report-orange)
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-blue)
 
-Dự án Automation Testing mẫu cho buổi Seminar **"Playwright + Cucumber: Modern E2E Testing"**.
+Dự án Automation Testing mẫu cho buổi Seminar **"Playwright + Playwright-BDD: Modern E2E Testing"**.
 Hệ thống được kiểm thử (SUT) là [SauceDemo (Swag Labs)](https://www.saucedemo.com/).
 
 ## 🎯 Mục tiêu Dự án (Seminar Goals)

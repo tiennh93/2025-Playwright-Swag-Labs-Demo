@@ -4,7 +4,7 @@
 
 ## Giai đoạn 1: Foundation (Cốt lõi)
 
-_Mục tiêu: Hiểu cách Playwright và Cucumber vận hành cùng nhau._
+_Mục tiêu: Hiểu cách Playwright và Playwright-BDD vận hành cùng nhau._
 
 1.  **TypeScript Basic:**
     - Hiểu `async/await` (Bắt buộc vì Playwright là bất đồng bộ).

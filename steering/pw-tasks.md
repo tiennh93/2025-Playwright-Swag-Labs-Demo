@@ -18,7 +18,6 @@ Làm theo đúng trình tự này, bạn sẽ có một project hoàn chỉnh đ
       - Trong section `use`, sửa:
       ```typescript
       use: {
-        testIdAttribute: 'data-test', // Config để ăn khớp với Swag Labs
         trace: 'on-first-retry',
         // ...
       }

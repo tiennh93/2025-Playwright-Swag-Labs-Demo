@@ -1,6 +1,6 @@
-# Checklist Best Practice Playwright + TypeScript + Cucumber (Web – Doanh nghiệp)
+# Checklist Best Practice Playwright + TypeScript + Playwright-BDD (Web – Doanh nghiệp)
 
-Tài liệu này dùng làm **chuẩn nội bộ** cho team QA/Dev khi xây dựng automation test với **Playwright + TypeScript + Cucumber (BDD)** cho ứng dụng web.
+Tài liệu này dùng làm **chuẩn nội bộ** cho team QA/Dev khi xây dựng automation test với **Playwright + TypeScript + Playwright-BDD** cho ứng dụng web.
 
 ---
 
@@ -42,7 +42,8 @@ Tài liệu này dùng làm **chuẩn nội bộ** cho team QA/Dev khi xây dự
 ### 📄 `login.feature`
 
 ```gherkin
-@smoke @auth
+@smoke
+@auth
 Feature: Đăng nhập hệ thống
 
   Scenario: Người dùng đăng nhập thành công
@@ -252,7 +253,8 @@ jobs:
 {
   "scripts": {
     "test": "npx bddgen && npx playwright test",
-    "test:smoke": "npx bddgen && npx playwright test --grep @smoke"
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{js,ts,json,feature,md}\""
   }
 }
 ```

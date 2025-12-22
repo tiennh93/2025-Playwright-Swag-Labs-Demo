@@ -3,24 +3,34 @@
   "version": "1.0.0",
   "description": "![Playwright](https://img.shields.io/badge/Playwright-Test-green) ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue) ![Cucumber](https://img.shields.io/badge/Cucumber-BDD-23d160) ![Node.js](https://img.shields.io/badge/Node.js-18%2B-orange)",
   "scripts": {
-    "test": "npx bddgen && npx playwright test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tiennh93/2025-Playwright-Swag-Labs-Demo.git"
+    "test": "npx bddgen && npx playwright test",
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{js,ts,json,feature,md}\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Tien Nguyen Huu",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/tiennh93/2025-Playwright-Swag-Labs-Demo/issues"
-  },
-  "homepage": "https://github.com/tiennh93/2025-Playwright-Swag-Labs-Demo#readme",
   "devDependencies": {
     "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
     "allure-playwright": "^3.4.3",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "playwright-bdd": "^8.4.2",
+    "prettier": "^3.7.4",
+    "prettier-plugin-gherkin": "^3.1.3",
     "typescript": "^5.9.3"
+  },
+  "lint-staged": {
+    "*.{js,ts,json,feature,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
