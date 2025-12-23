@@ -1,10 +1,23 @@
-Feature: Shopping Flow
+@regression
+@shopping
+Feature: Chức năng Mua sắm và Thanh toán
 
   Background:
     Given I am on the login page
-    When I login with "standard_user" and "secret_sauce"
+    And I login with "standard_user" and "secret_sauce"
 
-  Scenario: Add item to cart successfully
-    # Tái sử dụng step login ở trên
+  Scenario: Sắp xếp sản phẩm theo giá từ thấp đến cao
+    # Demo: Handle Dropdown & List Assertions
+    When I sort products by "Price (low to high)"
+    Then the product prices should be sorted in ascending order
+
+  Scenario: Quy trình thanh toán thành công (End-to-End)
+    # Demo: Complete User Flow
     When I add "Sauce Labs Backpack" to cart
-    Then the cart badge should display "1"
+    And I go to cart page
+    And I proceed to checkout
+    And I fill checkout information with:
+      | firstName | lastName | zipCode |
+      | John      | Doe      | 12345   |
+    And I finish the checkout
+    Then I should see the order confirmation message "Thank you for your order!"
