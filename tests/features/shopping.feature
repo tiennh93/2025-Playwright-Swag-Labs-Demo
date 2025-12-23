@@ -21,3 +21,8 @@ Feature: Chức năng Mua sắm và Thanh toán
       | John      | Doe      | 12345   |
     And I finish the checkout
     Then I should see the order confirmation message "Thank you for your order!"
+
+  Scenario: Xóa sản phẩm khỏi giỏ hàng ngay tại trang chủ
+    Given I add "Sauce Labs Backpack" to cart
+    When I remove "Sauce Labs Backpack" from the inventory
+    Then the cart badge should not be visible

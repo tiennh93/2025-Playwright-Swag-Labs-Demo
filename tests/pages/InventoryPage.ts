@@ -4,11 +4,13 @@ export class InventoryPage {
   readonly page: Page;
   readonly sortDropdown: Locator;
   readonly inventoryItemPrice: Locator;
+  readonly linkedinLink: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.sortDropdown = page.locator('[data-test="product-sort-container"]');
     this.inventoryItemPrice = page.locator('.inventory_item_price');
+    this.linkedinLink = page.locator('a[href*="linkedin.com"]');
   }
 
   // Demo: Handle Select Option (Dropdown)
@@ -37,5 +39,19 @@ export class InventoryPage {
 
   async goToCart() {
     await this.page.locator('.shopping_cart_link').click();
+  }
+
+  async removeItemFromInventory(itemName: string) {
+    // Tìm item theo tên -> Tìm nút Remove bên trong nó
+    await this.page
+      .locator('.inventory_item')
+      .filter({ hasText: itemName })
+      .getByRole('button', { name: 'Remove' })
+      .click();
+  }
+
+  async clickLinkedin() {
+    // Chỉ click thôi, việc chờ tab mới sẽ xử lý ở Step Definition
+    await this.linkedinLink.click();
   }
 }

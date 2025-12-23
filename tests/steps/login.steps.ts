@@ -18,3 +18,8 @@ Then('I should be redirected to the inventory page', async ({ page }) => {
   // Kiểm tra tiêu đề trang "Products" có hiển thị không
   await expect(page.locator('.title')).toHaveText('Products');
 });
+
+Then('I should see the error message {string}', async ({ loginPage }, message: string) => {
+  await expect(loginPage.errorMessage).toBeVisible();
+  await expect(loginPage.errorMessage).toHaveText(message);
+});

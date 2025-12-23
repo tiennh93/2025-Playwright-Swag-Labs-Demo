@@ -49,3 +49,12 @@ Then(
     await expect(checkoutPage.completeHeader).toHaveText(message);
   }
 );
+
+When('I remove {string} from the inventory', async ({ inventoryPage }, itemName: string) => {
+  await inventoryPage.removeItemFromInventory(itemName);
+});
+
+Then('the cart badge should not be visible', async ({ page }) => {
+  // Assert badge biến mất (hoặc không tồn tại)
+  await expect(page.locator('.shopping_cart_badge')).toBeHidden();
+});
