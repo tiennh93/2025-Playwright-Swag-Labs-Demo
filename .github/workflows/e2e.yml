@@ -1,0 +1,50 @@
+name: E2E Tests & Deploy Vercel
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run E2E tests
+        run: npm run test:smoke
+        id: tests
+
+      - name: Install Allure CLI
+        if: always()
+        run: npm install -g allure-commandline
+
+      - name: Generate Allure report
+        if: always()
+        run: npx allure generate -o allure-report ./allure-results
+
+      - name: Deploy to Vercel
+        if: always()
+        run: vercel deploy ./allure-report --token ${{ secrets.VERCEL_TOKEN }} --prod
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

@@ -141,7 +141,7 @@ npx allure serve allure-results
 Để generate HTML tĩnh:
 
 ```bash
-npx allure generate allure-results --clean -o allure-report
+npx allure generate -o allure-report allure-results
 ```
 
 ---

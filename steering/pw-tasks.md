@@ -109,7 +109,7 @@ Làm theo đúng trình tự này, bạn sẽ có một project hoàn chỉnh đ
 
 1.  **Allure Report:**
     - Chạy tests: `npx playwright test`
-    - Generate report: `npx allure generate allure-results --clean`
+    - Generate report: `npx allure generate -o allure-report allure-results`
     - Xem report: `npx allure serve allure-results`
 2.  **CI/CD:**
     - Tạo `.github/workflows/e2e.yml`.
