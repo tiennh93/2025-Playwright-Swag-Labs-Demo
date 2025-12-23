@@ -4,6 +4,10 @@
   "description": "![Playwright](https://img.shields.io/badge/Playwright-Test-green) ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue) ![Cucumber](https://img.shields.io/badge/Cucumber-BDD-23d160) ![Node.js](https://img.shields.io/badge/Node.js-18%2B-orange)",
   "scripts": {
     "test": "npx bddgen && npx playwright test",
+    "test:ui": "npx bddgen && npx playwright test --ui",
+    "test:headed": "npx bddgen && npx playwright test --headed",
+    "test:report": "npx allure generate -o ./allure-report ./allure-results",
+    "test:report:open": "npm run test:report && npx allure open ./allure-report",
     "prepare": "husky install",
     "format": "prettier --write \"**/*.{js,ts,json,feature,md}\""
   },

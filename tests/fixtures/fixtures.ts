@@ -1,16 +1,20 @@
+import { InventoryPage } from './../pages/InventoryPage';
 import { test as base, createBdd } from 'playwright-bdd';
 import { LoginPage } from '../pages/LoginPage';
 
 // 1. Định nghĩa Type cho Custom Fixtures
 type MyFixtures = {
   loginPage: LoginPage;
-  // Sau này thêm inventoryPage, cartPage...
+  inventoryPage: InventoryPage;
 };
 
 // 2. Extend base test
 export const test = base.extend<MyFixtures>({
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
+  },
+  inventoryPage: async ({ page }, use) => {
+    await use(new InventoryPage(page));
   },
 });
 
