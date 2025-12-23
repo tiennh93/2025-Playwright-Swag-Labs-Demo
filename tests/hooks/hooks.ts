@@ -1,4 +1,3 @@
-// tests/hooks/hooks.ts
 import { After, Before } from '../fixtures/fixtures'; // Import từ file fixtures vừa tạo
 
 // Setup trước mỗi Scenario

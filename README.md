@@ -45,8 +45,32 @@ Yêu cầu: **Node.js 18+**
     ```
 
 3.  **Cài đặt Browsers cho Playwright:**
+
     ```bash
     npx playwright install --with-deps
+    ```
+
+4.  **VS Code Extensions (Khuyến nghị):**
+    - **Cucumber (Gherkin) Full Support:** Cải thiện syntax highlighting cho `.feature` files
+    - **Prettier:** Code formatter tự động
+
+    **Cấu hình tự động** (nếu dùng `.vscode/settings.json`):
+
+    ```json
+    {
+      "cucumber.glue": ["tests/steps/**/*.ts"],
+      "cucumber.features": ["tests/features/**/*.feature"],
+      "editor.quickSuggestions": {
+        "comments": false,
+        "strings": true,
+        "other": true
+      },
+      "editor.formatOnSave": true,
+      "[cucumber]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2
+      }
+    }
     ```
 
 ## 🏃‍♂️ Hướng dẫn chạy Test (Usage)

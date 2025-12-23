@@ -31,5 +31,6 @@ module.exports = {
     'package.json',
     'tsconfig.json',
     '**/*.md',
+    '**/*.feature',
   ],
 };

@@ -1,16 +1,26 @@
-import { Page } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 
 export class LoginPage {
-  constructor(private page: Page) {}
-  // Selectors
-  username = () => this.page.getByTestId('username');
-  password = () => this.page.getByTestId('password');
-  loginBtn = () => this.page.getByTestId('login-button');
+  readonly page: Page;
+  readonly usernameInput: Locator;
+  readonly passwordInput: Locator;
+  readonly loginButton: Locator;
 
-  // Actions
-  async login(user: string, pass: string) {
-    await this.username().fill(user);
-    await this.password().fill(pass);
-    await this.loginBtn().click();
+  constructor(page: Page) {
+    this.page = page;
+    // Theo pw-product.md: Swag Labs dùng data-test rất chuẩn
+    this.usernameInput = page.locator('[data-test="username"]');
+    this.passwordInput = page.locator('[data-test="password"]');
+    this.loginButton = page.locator('[data-test="login-button"]');
+  }
+
+  async goto() {
+    await this.page.goto('https://www.saucedemo.com/');
+  }
+
+  async login(username: string, pass: string) {
+    await this.usernameInput.fill(username);
+    await this.passwordInput.fill(pass);
+    await this.loginButton.click();
   }
 }

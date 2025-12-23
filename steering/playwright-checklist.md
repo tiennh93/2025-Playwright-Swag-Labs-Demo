@@ -130,14 +130,14 @@ export const { Given, When, Then } = createBdd(test);
 ### 📄 `hooks.ts`
 
 ```ts
-import { Before, After } from 'playwright-bdd';
+import { Before, After } from '../fixtures/fixtures';
 
 // Setup common state if needed (tuy nhiên ưu tiên dùng fixtures)
-Before(async ({ page }) => {
+Before(async (fixtures) => {
   console.log('Start scenario...');
 });
 
-After(async ({ page }) => {
+After(async (fixtures) => {
   console.log('End scenario');
   // Screenshot/Video được Playwright handler tự động
 });

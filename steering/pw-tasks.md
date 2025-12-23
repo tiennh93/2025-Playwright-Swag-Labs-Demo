@@ -22,7 +22,25 @@ Làm theo đúng trình tự này, bạn sẽ có một project hoàn chỉnh đ
         // ...
       }
       ```
-3.  **Generate Test Files từ Features:**
+3.  **VS Code Settings (Tùy chọn):**
+    - Tạo `.vscode/settings.json` để cấu hình Cucumber & Prettier:
+    ```json
+    {
+      "cucumber.glue": ["tests/steps/**/*.ts"],
+      "cucumber.features": ["tests/features/**/*.feature"],
+      "editor.quickSuggestions": {
+        "comments": false,
+        "strings": true,
+        "other": true
+      },
+      "editor.formatOnSave": true,
+      "[cucumber]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2
+      }
+    }
+    ```
+4.  **Generate Test Files từ Features:**
     ```bash
     npx bddgen  # Generate step definitions và test files từ .feature files
     ```
