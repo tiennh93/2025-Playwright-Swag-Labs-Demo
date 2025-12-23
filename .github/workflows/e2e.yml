@@ -31,12 +31,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run E2E tests
-        run: npm run test:smoke
+        run: npm run test
         id: tests
-
-      - name: Install Allure CLI
-        if: always()
-        run: npm install -g allure-commandline
 
       - name: Generate Allure report
         if: always()
@@ -44,7 +40,7 @@ jobs:
 
       - name: Deploy to Vercel
         if: always()
-        run: vercel deploy ./allure-report --token ${{ secrets.VERCEL_TOKEN }} --prod
+        run: npx vercel deploy ./allure-report --token ${{ secrets.VERCEL_TOKEN }} --prod
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
