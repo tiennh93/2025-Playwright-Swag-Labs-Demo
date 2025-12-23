@@ -5,12 +5,14 @@ export class InventoryPage {
   readonly sortDropdown: Locator;
   readonly inventoryItemPrice: Locator;
   readonly linkedinLink: Locator;
+  readonly productImages: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.sortDropdown = page.locator('[data-test="product-sort-container"]');
     this.inventoryItemPrice = page.locator('.inventory_item_price');
     this.linkedinLink = page.locator('a[href*="linkedin.com"]');
+    this.productImages = page.locator('.inventory_item_img img');
   }
 
   // Demo: Handle Select Option (Dropdown)
@@ -53,5 +55,16 @@ export class InventoryPage {
   async clickLinkedin() {
     // Chỉ click thôi, việc chờ tab mới sẽ xử lý ở Step Definition
     await this.linkedinLink.click();
+  }
+
+  async checkBrokenImages() {
+    // EvaluateAll: Chạy code JS trên tất cả các element tìm được
+    // Trả về mảng các src của ảnh bị lỗi (có độ rộng tự nhiên = 0)
+    const brokenImages = await this.productImages.evaluateAll((imgs) => {
+      return imgs
+        .filter((img) => (img as HTMLImageElement).naturalWidth === 0)
+        .map((img) => (img as HTMLImageElement).src);
+    });
+    return brokenImages;
   }
 }

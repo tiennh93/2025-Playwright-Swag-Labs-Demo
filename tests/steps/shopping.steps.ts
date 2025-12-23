@@ -58,3 +58,11 @@ Then('the cart badge should not be visible', async ({ page }) => {
   // Assert badge biến mất (hoặc không tồn tại)
   await expect(page.locator('.shopping_cart_badge')).toBeHidden();
 });
+
+Then('all product images should load correctly', async ({ inventoryPage }) => {
+  const brokenSrcList = await inventoryPage.checkBrokenImages();
+
+  // Nếu mảng brokenSrcList rỗng ([]) nghĩa là không có ảnh lỗi -> Pass
+  // Nếu dùng user 'problem_user', mảng này sẽ có dữ liệu -> Fail (đúng ý đồ demo)
+  expect(brokenSrcList, `Found broken images: ${brokenSrcList}`).toHaveLength(0);
+});

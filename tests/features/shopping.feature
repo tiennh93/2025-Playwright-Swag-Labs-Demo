@@ -26,3 +26,9 @@ Feature: Chức năng Mua sắm và Thanh toán
     Given I add "Sauce Labs Backpack" to cart
     When I remove "Sauce Labs Backpack" from the inventory
     Then the cart badge should not be visible
+
+  @broken-images
+  Scenario: Kiểm tra hình ảnh sản phẩm không bị lỗi
+    Given I am on the login page
+    When I login with "problem_user" and "secret_sauce"
+    Then all product images should load correctly

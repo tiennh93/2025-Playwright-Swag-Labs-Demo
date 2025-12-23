@@ -1,9 +1,5 @@
-import { createBdd } from 'playwright-bdd';
-import { expect } from '@playwright/test';
-import { test } from '../fixtures/fixtures';
-import { Page } from '@playwright/test';
-
-const { When, Then } = createBdd(test);
+import { expect, Page } from '@playwright/test';
+import { Then, When } from '../fixtures/fixtures';
 
 // Biến global để lưu trang mới (popup)
 let newPage: Page | null = null;
