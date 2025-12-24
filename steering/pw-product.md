@@ -1,13 +1,13 @@
-# 🏷️ Dự án Demo: Swag Labs (SauceDemo)
+# 🏷️ Demo Project: Swag Labs (SauceDemo)
 
-## 📝 1. Tổng quan (Overview)
+## 📝 1. Overview
 
-**Swag Labs** là một trang web thương mại điện tử mẫu (E-commerce sandbox), được thiết kế chuyên biệt để thực hành Automation Testing. Trang web này cực kỳ ổn định, tốc độ tải nhanh và có cấu trúc DOM rõ ràng.
+**Swag Labs** is a sample e-commerce website (E-commerce sandbox), designed specifically for practicing Automation Testing. This website is extremely stable, loads fast, and has a clear DOM structure.
 
 - **URL:** `https://www.saucedemo.com/`
-- **Mục tiêu Seminar:** Chứng minh khả năng viết test nhanh, ổn định và dễ đọc của Playwright + playwright-bdd với BDD approach, kết hợp Allure Reporting để tạo báo cáo chuyên nghiệp.
+- **Seminar Goal:** Demonstrate the ability to write fast, stable, and readable tests using Playwright + playwright-bdd with BDD approach, combined with Allure Reporting for professional reports.
 
-## 🔐 2. Tài khoản kiểm thử (Test Data)
+## 🔐 2. Test Data
 
 - **Standard User:**
   - Username: `standard_user`
@@ -16,24 +16,57 @@
   - Username: `locked_out_user`
   - Password: `secret_sauce`
 
-## 🎯 3. Kịch bản Demo (Critical Scenarios)
+## 🎯 3. Demo Scenarios (Critical Scenarios)
 
-Để buổi thuyết trình gãy gọn trong 30-45 phút, chúng ta tập trung vào 2 luồng chính:
+To keep the presentation concise within 30-45 minutes, we focus on 2 main flows:
 
-1.  **Authentication (Đăng nhập):**
-    - Đăng nhập thành công -> Chuyển hướng đến trang sản phẩm.
-    - _Kỹ thuật demo:_ Page Object, `fill`, `click`, Assertions URL.
-2.  **Shopping Flow (Mua sắm):**
-    - Lọc sản phẩm (nếu kịp).
-    - Thêm sản phẩm vào giỏ hàng (Add to cart).
-    - Kiểm tra icon giỏ hàng cập nhật số lượng.
-    - _Kỹ thuật demo:_ Locator Chaining, Filter, `getByRole`.
+1.  **Authentication:**
+    - Successful login -> Redirect to product page.
+    - _Demo Technique:_ Page Object, `fill`, `click`, assertions using URL.
+2.  **Shopping Flow:**
+    - Sort products (Low to High).
+    - Add product to cart (Sauce Labs Backpack).
+    - Checkout process (End-to-End).
+    - Remove product from cart.
+    - _Demo Technique:_ Locator Chaining, Filter, `getByRole`.
+3.  **Visual Regression:**
+    - Compare login page with design snapshot.
+    - _Demo Technique:_ `expect(page).toHaveScreenshot()`.
 
-## ⚙️ 4. Mapping Kỹ thuật (Playwright Strategy)
+## 🚀 4. Advanced Scenarios (Enterprise Best Practices)
+
+Các scenarios nâng cao để demo enterprise-level testing:
+
+1.  **Dynamic Data with Faker:**
+    - Generate random user data for checkout (firstName, lastName, zipCode).
+    - **Tags:** `@faker`, `@dynamic-data`
+    - **Feature:** `advanced-patterns.feature`
+    - _Demo Technique:_ `@faker-js/faker` integration, avoid hardcoded data.
+
+2.  **Soft Assertions:**
+    - Verify multiple UI elements without stopping on first failure.
+    - **Tags:** `@soft-assertions`
+    - **Feature:** `advanced-patterns.feature`
+    - _Demo Technique:_ `expect.soft()` for comprehensive validation.
+
+3.  **Network Mocking:**
+    - Test application behavior when images fail to load.
+    - Simulate slow network conditions.
+    - **Tags:** `@network-mocking`, `@blocked-images`, `@slow-network`
+    - **Feature:** `network-errors.feature`
+    - _Demo Technique:_ `page.route()` for mocking network responses.
+
+4.  **Data Cleanup:**
+    - Automatic cleanup of cart items after tests.
+    - **Tags:** `@data-cleanup`
+    - **Feature:** `advanced-patterns.feature`
+    - _Demo Technique:_ Track test data, cleanup in `After` hooks.
+
+## ⚙️ 5. Technical Mapping (Playwright Strategy)
 
 - **Selector Strategy:**
-  - Swag Labs sử dụng thuộc tính `data-test` rất nhất quán.
-  - **Cấu hình:** Trong `playwright.config.ts`, ta sẽ set `testIdAttribute: 'data-test'`.
-  - **Lợi ích:** Code sẽ dùng `page.getByTestId('username')` thay vì CSS Selector dài dòng -> Code sạch, dễ bảo trì.
+  - Swag Labs uses `data-test` attributes very consistently.
+  - **Configuration:** In `playwright.config.ts`, set `testIdAttribute: 'data-test'`.
+  - **Benefit:** Code uses `page.getByTestId('username')` instead of verbose CSS Selectors -> Clean code, easy maintenance.
 - **State Management:**
-  - Mỗi Scenario là một Context mới hoàn toàn (Incognito) để đảm bảo tính độc lập.
+  - Each Scenario is a completely new Context (Incognito) to ensure independence.

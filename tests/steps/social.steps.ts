@@ -1,5 +1,5 @@
 import { expect, Page } from '@playwright/test';
-import { Then, When } from '../fixtures/fixtures';
+import { Then, When } from '../fixtures';
 
 let newPage: Page | null = null;
 

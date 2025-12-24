@@ -1,7 +1,7 @@
 import { test as base, createBdd } from 'playwright-bdd';
-import { CheckoutPage } from '../pages/CheckoutPage';
-import { InventoryPage } from '../pages/InventoryPage';
-import { LoginPage } from '../pages/LoginPage';
+import { CheckoutPage } from '../pages/checkout-page';
+import { InventoryPage } from '../pages/inventory-page';
+import { LoginPage } from '../pages/login-page';
 import { BASE_URL } from '../utils/config';
 
 type MyFixtures = {

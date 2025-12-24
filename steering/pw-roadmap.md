@@ -1,50 +1,58 @@
-# 🗺️ Lộ trình làm chủ Playwright (Seminar Preparation)
+# 🗺️ Playwright Mastery Roadmap (Seminar Preparation)
 
-Đây là lộ trình đi tắt đón đầu, tập trung vào những kỹ năng cần thiết nhất để bạn **Live Coding** thành công.
+This is a fast-track roadmap, focusing on the most essential skills for successful **Live Coding**.
 
-## Giai đoạn 1: Foundation (Cốt lõi)
+## Phase 1: Foundation (Core)
 
-_Mục tiêu: Hiểu cách Playwright và Playwright-BDD vận hành cùng nhau._
+_Goal: Understand how Playwright and Playwright-BDD work together._
 
 1.  **TypeScript Basic:**
-    - Hiểu `async/await` (Bắt buộc vì Playwright là bất đồng bộ).
+    - Understand `async/await` (Required as Playwright is asynchronous).
     - Arrow Function `() => {}`.
-    - Class & Constructor (Dùng cho Page Object).
+    - Class & Constructor (Used for Page Object).
 2.  **Playwright Core:**
-    - **Locators:** `getByTestId`, `getByRole`, `getByText`. (Hạn chế tối đa XPath/CSS).
+    - **Locators:** `getByTestId`, `getByRole`, `getByText`. (Minimize XPath/CSS).
     - **Actions:** `click()`, `fill()`.
     - **Assertions:** `expect(locator).toBeVisible()`, `expect(locator).toHaveText()`.
 3.  **Playwright-BDD Integration:**
-    - Cấu hình `playwright-bdd` trong `playwright.config.ts`.
-    - Hiểu luồng chạy: `Feature` -> `Step Definition` -> `Page Object`.
-    - Sử dụng Gherkin syntax ngay trong Playwright Test Runner.
+    - Configure `playwright-bdd` in `playwright.config.ts`.
+    - Understand execution flow: `Feature` -> `Step Definition` -> `Page Object`.
+    - Use Gherkin syntax directly within Playwright Test Runner.
 
-## Giai đoạn 2: Architecture (Kiến trúc Framework)
+## Phase 2: Architecture (Framework Architecture)
 
-_Mục tiêu: Xây dựng framework chuẩn doanh nghiệp._
+_Goal: Build an enterprise-standard framework._
 
-1.  **Fixtures & Context:** Hiểu cách sử dụng Playwright fixtures để quản lý `page`, `context` và các dependencies.
-2.  **Hooks:** Setup và teardown sử dụng `BeforeAll`, `AfterAll`, `Before`, `After` hooks của playwright-bdd.
+1.  **Fixtures & Context:** Understand how to use Playwright fixtures to manage `page`, `context`, and dependencies.
+2.  **Hooks:** Setup and teardown using `BeforeAll`, `AfterAll`, `Before`, `After` hooks from Playwright.
 3.  **Page Object Model (POM):**
-    - Nguyên tắc: "Page Object chứa Locators/Actions, không chứa Assertions".
-    - Cách tổ chức class Page gọn gàng.
+    - Principle: "Page Object contains Locators/Actions, no Assertions".
+    - Clean Page class organization.
 
-## Giai đoạn 3: Advanced & CI/CD (Điểm nhấn Seminar)
+## Phase 3: Advanced & CI/CD (Seminar Highlight)
 
-_Mục tiêu: Trình diễn các tính năng "ăn tiền" của Playwright._
+_Goal: Showcase "killer features" of Playwright._
 
 1.  **Allure Reporting:**
-    - Tích hợp `allure-playwright` để tạo báo cáo đẹp và chi tiết.
-    - Biết cách xem report với `allure serve` và các thông tin: steps, screenshots, video, attachments.
+    - Integrate `allure-playwright` for beautiful and detailed reports.
+    - Know how to view reports with `allure serve` and details: steps, screenshots, video, attachments.
 2.  **Trace Viewer (Deep Debugging):**
-    - Hiểu vai trò bổ trợ cho Allure: Allure để báo cáo, Trace Viewer để debug lỗi sâu.
-    - Biết cách mở file trace.zip (có thể được đính kèm trong Allure).
-    - Biết cách phân tích timeline, DOM snapshots, network requests.
-3.  **GitHub Actions:**
-    - Hiểu file `.yml`.
-    - Demo việc test tự chạy khi push code.
-4.  **AI Coding (Optional):**
-    - Sử dụng GitHub Copilot hoặc ChatGPT để sinh Step Definitions từ Feature file cực nhanh.
+    - Understand its complementary role to Allure: Allure for reporting, Trace Viewer for deep debugging.
+    - Know how to open `trace.zip` (can be attached in Allure).
+    - Know how to analyze timeline, DOM snapshots, network requests.
+3.  **Visual Regression Testing (New):**
+    - Snapshot testing implementation.
+    - Comparing screenshots with baselines.
+4.  **GitHub Actions:**
+    - Understand `.yml` files.
+    - Demo automated testing on code push.
+5.  **AI Coding (Optional):**
+    - Use GitHub Copilot or ChatGPT to generate Step Definitions from Feature files instantly.
+
+## Phase 4: Soft Skills (Presentation)
+
+1.  **Live Coding Flow:** Practice coding without documentation for basic parts.
+2.  **Q&A Handling:** Prepare for comparison questions (vs Selenium, vs Cypress).
 
 ## Giai đoạn 4: Soft Skills (Thuyết trình)
 

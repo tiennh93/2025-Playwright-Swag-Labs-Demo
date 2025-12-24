@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
 import { DataTable } from 'playwright-bdd';
-import { Then, When } from '../fixtures/fixtures';
+import { Then, When } from '../fixtures';
 
 When('I sort products by {string}', async ({ inventoryPage }, option: string) => {
   await inventoryPage.sortProductsBy(option);
@@ -14,8 +15,18 @@ Then('the product prices should be sorted in ascending order', async ({ inventor
   expect(prices).toEqual(sortedPrices);
 });
 
-When('I add {string} to cart', async ({ inventoryPage }, itemName: string) => {
+When('I add {string} to cart', async ({ inventoryPage, page }, itemName: string) => {
   await inventoryPage.addItemToCart(itemName);
+
+  // Track added items for cleanup
+  interface TestData {
+    createdItems: string[];
+    addedToCart: string[];
+  }
+  const testData = (page as { testData?: TestData }).testData;
+  if (testData) {
+    testData.addedToCart.push(itemName);
+  }
 });
 
 When('I go to cart page', async ({ inventoryPage }) => {
@@ -26,9 +37,21 @@ When('I proceed to checkout', async ({ checkoutPage }) => {
   await checkoutPage.proceedToCheckout();
 });
 
+// Support both static data from DataTable and dynamic data generation
 When('I fill checkout information with:', async ({ checkoutPage }, dataTable: DataTable) => {
   const info = dataTable.hashes()[0];
   await checkoutPage.fillInformation(info.firstName, info.lastName, info.zipCode);
+});
+
+// New step: Use Faker to generate random checkout data
+When('I fill checkout information with random data', async ({ checkoutPage }) => {
+  const firstName = faker.person.firstName();
+  const lastName = faker.person.lastName();
+  const zipCode = faker.location.zipCode();
+
+  console.log(`🎲 Generated random checkout data: ${firstName} ${lastName}, ${zipCode}`);
+
+  await checkoutPage.fillInformation(firstName, lastName, zipCode);
 });
 
 When('I finish the checkout', async ({ checkoutPage }) => {

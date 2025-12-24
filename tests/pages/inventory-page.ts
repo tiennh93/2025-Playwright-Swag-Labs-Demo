@@ -50,6 +50,12 @@ export class InventoryPage {
   }
 
   async checkBrokenImages() {
+    // Wait for all images to be loaded
+    await this.page.waitForFunction(() => {
+      const imgs = Array.from(document.querySelectorAll('.inventory_item_img img'));
+      return imgs.every((img) => (img as HTMLImageElement).complete);
+    });
+
     const brokenImages = await this.productImages.evaluateAll((imgs) => {
       return imgs
         .filter((img) => (img as HTMLImageElement).naturalWidth === 0)

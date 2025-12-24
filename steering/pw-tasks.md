@@ -1,8 +1,8 @@
-# 🛠️ Hướng dẫn thực hành: Build Framework từ số 0
+# 🛠️ Practice Guide: Build Framework from Scratch
 
-Làm theo đúng trình tự này, bạn sẽ có một project hoàn chỉnh để demo.
+Follow this exact sequence to have a complete demo project.
 
-## ✅ Phần 1: Khởi tạo & Cấu hình (Setup)
+## ✅ Part 1: Initialization & Configuration (Setup)
 
 1.  **Init Project:**
     ```bash
@@ -12,18 +12,18 @@ Làm theo đúng trình tự này, bạn sẽ có một project hoàn chỉnh đ
     npm install -D @playwright/test playwright-bdd allure-playwright typescript
     ```
 2.  **Config Files:**
-    - Tạo `tsconfig.json`, `playwright.config.ts` (Copy từ checklist).
-    - **Quan trọng:** Trong `playwright.config.ts`:
-      - Thêm `reporter: [['html'], ['allure-playwright']]` để sử dụng Allure reporting.
-      - Trong section `use`, sửa:
+    - Create `tsconfig.json`, `playwright.config.ts`.
+    - **Important:** In `playwright.config.ts`:
+      - Add `reporter: [['html'], ['allure-playwright']]` to use Allure reporting.
+      - In `use` section, update:
       ```typescript
       use: {
         trace: 'on-first-retry',
         // ...
       }
       ```
-3.  **VS Code Settings (Tùy chọn):**
-    - Tạo `.vscode/settings.json` để cấu hình Cucumber & Prettier:
+3.  **VS Code Settings (Optional):**
+    - Create `.vscode/settings.json` to configure Cucumber & Prettier:
     ```json
     {
       "cucumber.glue": ["tests/steps/**/*.ts"],
@@ -40,51 +40,57 @@ Làm theo đúng trình tự này, bạn sẽ có một project hoàn chỉnh đ
       }
     }
     ```
-4.  **Generate Test Files từ Features:**
+4.  **Generate Test Files from Features:**
     ```bash
-    npx bddgen  # Generate step definitions và test files từ .feature files
+    npx bddgen  # Generate step definitions and test files from .feature files
     ```
 
-## ✅ Phần 2: Core Framework (Fixtures & Hooks)
+## ✅ Part 2: Core Framework (Fixtures & Hooks)
 
-1.  **Fixtures (`tests/fixtures.ts`):**
-    - Sử dụng Playwright's built-in fixtures: `page`, `context`, `browser`.
-    - Tạo custom fixtures nếu cần (ví dụ: `loginPage`, `inventoryPage`).
-    - playwright-bdd tự động inject fixtures vào step definitions.
-2.  **Hooks (`tests/hooks.ts`):**
-    - Import `BeforeAll`, `AfterAll`, `Before`, `After` từ `playwright-bdd`.
-    - `Before`: Setup cho mỗi scenario (nếu cần).
-    - `After`: Cleanup và attach screenshots/videos vào Allure report.
+1.  **Fixtures (`tests/fixtures/index.ts`):**
+    - Use Playwright's built-in fixtures: `page`, `context`, `browser`.
+    - Create custom fixtures if needed (e.g., `loginPage`, `inventoryPage`).
+    - playwright-bdd automatically injects fixtures into step definitions.
+2.  **Hooks (`tests/hooks/index.ts`):**
+    - Import `BeforeAll`, `AfterAll`, `Before`, `After` from `playwright-bdd`.
+    - `Before`: Setup for each scenario (if needed).
+    - `After`: Cleanup and attach screenshots/videos to Allure report.
 
-## ✅ Phần 3: Login Feature (POM + Steps)
+## ✅ Part 3: Login Feature (POM + Steps)
 
 1.  **Page Object (`tests/pages/LoginPage.ts`):**
 
     ```typescript
     export class LoginPage {
-      constructor(private page: Page) {}
-      // Selectors
-      username = () => this.page.getByTestId('username');
-      password = () => this.page.getByTestId('password');
-      loginBtn = () => this.page.getByTestId('login-button');
+      readonly page: Page;
+      readonly usernameInput: Locator;
+      readonly passwordInput: Locator;
+      readonly loginButton: Locator;
+
+      constructor(page: Page) {
+        this.page = page;
+        this.usernameInput = page.locator('[data-test="username"]');
+        this.passwordInput = page.locator('[data-test="password"]');
+        this.loginButton = page.locator('[data-test="login-button"]');
+      }
 
       // Actions
       async login(user: string, pass: string) {
-        await this.username().fill(user);
-        await this.password().fill(pass);
-        await this.loginBtn().click();
+        await this.usernameInput.fill(user);
+        await this.passwordInput.fill(pass);
+        await this.loginButton.click();
       }
     }
     ```
 
 2.  **Feature (`tests/features/login.feature`):**
-    - Viết Scenario Login thành công.
+    - Write Successful Login Scenario.
 3.  **Steps (`tests/steps/login.steps.ts`):**
-    - Import `Given`, `When`, `Then` từ `playwright-bdd`.
-    - Sử dụng fixtures được inject tự động: `{ page }` hoặc custom fixtures.
-    - Map Gherkin steps với `LoginPage` actions.
+    - Import `Given`, `When`, `Then` from `playwright-bdd`.
+    - Use automatically injected fixtures: `{ page }` or custom fixtures.
+    - Map Gherkin steps with `LoginPage` actions.
 
-## ✅ Phần 4: Shopping Feature (Nâng cao)
+## ✅ Part 4: Shopping Feature (Advanced)
 
 1.  **Feature:**
     ```gherkin
@@ -93,25 +99,25 @@ Làm theo đúng trình tự này, bạn sẽ có một project hoàn chỉnh đ
         Then cart badge should show "1"
     ```
 2.  **Inventory Page (`tests/pages/InventoryPage.ts`):**
-    - Demo kỹ thuật **Locator Filter**:
+    - Demo **Locator Filter** technique:
       ```typescript
       async addItemToCart(itemName: string) {
-          // Tìm item có chứa text tên sản phẩm, sau đó tìm nút "Add to cart" bên trong nó
+          // Find item containing product name text, then find "Add to cart" button within it
           await this.page.locator('.inventory_item')
               .filter({ hasText: itemName })
               .getByRole('button', { name: 'Add to cart' })
               .click();
       }
       ```
-    - _Đây là điểm nhấn kỹ thuật cho thấy sự ưu việt của Playwright._
+    - _This is a technical highlight showing Playwright's superiority._
 
-## ✅ Phần 5: Reporting & CI/CD
+## ✅ Part 5: Reporting & CI/CD
 
 1.  **Allure Report:**
-    - Chạy tests: `npx playwright test`
+    - Run tests: `npx playwright test`
     - Generate report: `npx allure generate -o allure-report allure-results`
-    - Xem report: `npx allure serve allure-results`
+    - View report: `npx allure serve allure-results`
 2.  **CI/CD:**
-    - Tạo `.github/workflows/e2e.yml`.
-    - Cấu hình để upload Allure results và generate report.
-    - Push code lên GitHub và xem pipeline chạy trên tab "Actions".
+    - Create `.github/workflows/e2e.yml`.
+    - Configure to upload Allure results and generate report.
+    - Push code to GitHub and watch pipeline run on "Actions" tab.

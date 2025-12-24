@@ -1,7 +1,7 @@
 @visual
-Feature: Kiểm thử giao diện (Visual Regression)
+Feature: Visual Regression Testing
 
-  Scenario: Giao diện trang Login phải đúng chuẩn thiết kế
+  Scenario: Login page UI matches design
     Given I am on the login page
-    # Snapshot testing: Chụp ảnh màn hình và so sánh với ảnh gốc
+    # Snapshot testing: Capture screenshot and compare with baseline
     Then the login page should look exactly like the design

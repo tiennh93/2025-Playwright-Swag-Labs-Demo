@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { Given, Then, When } from '../fixtures/fixtures';
+import { Given, Then, When } from '../fixtures';
 
 Given('I am on the login page', async ({ loginPage }) => {
   await loginPage.goto();
@@ -7,6 +7,13 @@ Given('I am on the login page', async ({ loginPage }) => {
 
 When('I login with {string} and {string}', async ({ loginPage }, username, password) => {
   await loginPage.login(username, password);
+});
+
+When('I login with valid credentials', async ({ loginPage }) => {
+  await loginPage.login(
+    process.env.SAUCE_USERNAME || 'standard_user',
+    process.env.SAUCE_PASSWORD || 'secret_sauce'
+  );
 });
 
 Then('I should be redirected to the inventory page', async ({ page }) => {

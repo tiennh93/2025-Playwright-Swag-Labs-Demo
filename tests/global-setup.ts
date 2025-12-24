@@ -12,8 +12,8 @@ async function globalSetup() {
 
     await page.waitForLoadState('networkidle');
 
-    await page.fill('[data-test="username"]', 'standard_user');
-    await page.fill('[data-test="password"]', 'secret_sauce');
+    await page.fill('[data-test="username"]', process.env.SAUCE_USERNAME || 'standard_user');
+    await page.fill('[data-test="password"]', process.env.SAUCE_PASSWORD || 'secret_sauce');
     await page.click('[data-test="login-button"]');
 
     await page.waitForURL('**/inventory.html');
@@ -21,9 +21,9 @@ async function globalSetup() {
     const statePath = path.join(process.cwd(), 'state.json');
     await context.storageState({ path: statePath });
 
-    console.log('✅ Global setup: Login thành công và đã lưu state.json');
+    console.log('✅ Global setup: Login successful and state.json saved');
   } catch (error) {
-    console.error('❌ Global setup: Login thất bại:', error);
+    console.error('❌ Global setup: Login failed:', error);
     throw error;
   } finally {
     await browser.close();

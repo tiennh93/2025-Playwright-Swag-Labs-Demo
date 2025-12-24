@@ -6,16 +6,16 @@
 ![Allure](https://img.shields.io/badge/Allure-Report-orange)
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-blue)
 
-Dự án Automation Testing mẫu cho buổi Seminar **"Playwright + Playwright-BDD: Modern E2E Testing"**.
-Hệ thống được kiểm thử (SUT) là [SauceDemo (Swag Labs)](https://www.saucedemo.com/).
+Automation Testing Project for the Seminar **"Playwright + Playwright-BDD: Modern E2E Testing"**.
+The System Under Test (SUT) is [SauceDemo (Swag Labs)](https://www.saucedemo.com/).
 
-## 🎯 Mục tiêu Dự án (Seminar Goals)
+## 🎯 Project Goals
 
-Dự án này được xây dựng để minh họa:
+This project was built to illustrate:
 
-1.  **Mô hình BDD (Behavior Driven Development):** Kết nối Gherkin (.feature) với TypeScript.
-2.  **Page Object Model (POM):** Tách biệt logic test và UI locators.
-3.  **Enterprise Standard:** Cấu trúc thư mục sạch, dễ mở rộng và tích hợp CI/CD.
+1.  **BDD (Behavior Driven Development) Model:** Connecting Gherkin (.feature) with TypeScript.
+2.  **Page Object Model (POM):** Separating test logic and UI locators.
+3.  **Enterprise Standard:** Clean, scalable folder structure with CI/CD integration.
 4.  **Playwright Features:** Auto-waiting, Tracing, `getByTestId`.
 
 ## 🛠️ Tech Stack
@@ -24,37 +24,38 @@ Dự án này được xây dựng để minh họa:
 - **Language:** TypeScript
 - **BDD Integration:** [playwright-bdd](https://github.com/vitalets/playwright-bdd)
 - **Assertion:** Playwright Expect
+- **Test Data:** [@faker-js/faker](https://fakerjs.dev/) - Dynamic test data generation
 - **Reporting:** [Allure Playwright](https://github.com/allure-framework/allure-js/tree/master/packages/allure-playwright)
 - **CI/CD:** GitHub Actions
 
-## 🚀 Cài đặt (Installation)
+## 🚀 Installation
 
-Yêu cầu: **Node.js 18+**
+Requirement: **Node.js 18+**
 
-1.  **Clone dự án:**
+1.  **Clone the project:**
 
     ```bash
     git clone <your-repo-url>
     cd SwagLabs.E2E
     ```
 
-2.  **Cài đặt dependencies:**
+2.  **Install dependencies:**
 
     ```bash
     npm install
     ```
 
-3.  **Cài đặt Browsers cho Playwright:**
+3.  **Install Browsers for Playwright:**
 
     ```bash
     npx playwright install --with-deps
     ```
 
-4.  **VS Code Extensions (Khuyến nghị):**
-    - **Cucumber (Gherkin) Full Support:** Cải thiện syntax highlighting cho `.feature` files
-    - **Prettier:** Code formatter tự động
+4.  **VS Code Extensions (Recommended):**
+    - **Cucumber (Gherkin) Full Support:** Enhances syntax highlighting for `.feature` files
+    - **Prettier:** Automatic code formatter
 
-    **Cấu hình tự động** (nếu dùng `.vscode/settings.json`):
+    **Auto-configuration** (if using `.vscode/settings.json`):
 
     ```json
     {
@@ -73,72 +74,152 @@ Yêu cầu: **Node.js 18+**
     }
     ```
 
-## 🏃‍♂️ Hướng dẫn chạy Test (Usage)
+## 🏃‍♂️ Usage
 
-Các kịch bản test được định nghĩa trong script `package.json`.
+Test scenarios are defined in `package.json` scripts.
 
-### 1. Chạy toàn bộ Test
+### 1. Run All Tests
 
 ```bash
 npm test
-# Lệnh này tương đương: npx bddgen && npx playwright test
+# This command is equivalent to: npx bddgen && npx playwright test
 ```
 
-### 2. Chạy Smoke Test (Các luồng chính)
+### 2. Run Smoke Tests (Main Flows)
 
-Chỉ chạy các scenario có tag `@smoke`.
+Only runs scenarios with the `@smoke` tag.
 
 ```bash
 npx bddgen && npx playwright test --grep "@smoke"
 ```
 
-### 3. Debug Mode (Có giao diện UI)
+### 3. Debug Mode (Headed)
 
-Để chạy test với trình duyệt hiển thị (Headed mode) để debug:
+To run tests with the browser visible for debugging:
 
 ```bash
 npx bddgen && npx playwright test --headed
 ```
 
-## 📂 Cấu trúc Dự án (Project Structure)
+## 📂 Project Structure
 
-Cấu trúc tuân thủ Clean Code và tách biệt các lớp xử lý.
+The structure follows Clean Code principles and separates concerns.
 
 ```ascii
-SwagLabs.E2E
-├── .features-gen       # [Generated] Code test sinh ra từ .feature (playwright-bdd)
+sauce-demo
+├── .features-gen       # [Generated] Test code generated from .feature (playwright-bdd)
 ├── .github/workflows   # CI/CD Pipelines
-├── allure-results      # [Generated] Raw data cho Allure
+├── allure-results      # [Generated] Raw data for Allure
 ├── allure-report       # [Generated] HTML Report
+├── steering            # Project documentation & best practices
+│   ├── playwright-checklist.md  # Enterprise best practices checklist
+│   ├── pw-product.md            # Product specification
+│   ├── pw-structure.md          # Code structure documentation
+│   ├── pw-roadmap.md            # Learning roadmap
+│   └── pw-tasks.md              # Task list & guides
 ├── tests
-│   ├── features        # File Gherkin (Kịch bản kiểm thử)
-│   ├── steps           # Step Definitions (Code logic)
+│   ├── features        # Gherkin Files (Test Scenarios)
+│   │   ├── login.feature
+│   │   ├── shopping.feature
+│   │   ├── social.feature
+│   │   ├── ui.feature
+│   │   ├── advanced-patterns.feature    # ✨ NEW: Faker, Soft Assertions, Cleanup
+│   │   └── network-errors.feature       # ✨ NEW: Network Mocking
+│   ├── steps           # Step Definitions (Logic Code)
+│   │   ├── login.steps.ts
+│   │   ├── shopping.steps.ts            # ✨ Updated: Faker integration
+│   │   ├── social.steps.ts
+│   │   ├── ui.steps.ts                  # ✨ Updated: Soft Assertions
+│   │   └── network.steps.ts             # ✨ NEW: Network mocking steps
 │   ├── pages           # Page Objects (Locators & Actions)
-│   ├── hooks           # Setup & Teardown (Before/After)
-│   ├── fixtures        # Dependency Injection (thay cho World)
-│   └── utils           # Test Data & Helpers
-└── playwright.config.ts # Cấu hình Playwright & BDD
+│   │   ├── login-page.ts
+│   │   ├── inventory-page.ts
+│   │   └── checkout-page.ts
+│   ├── hooks           # Setup & Teardown (Before/After) - index.ts
+│   │   └── index.ts                     # ✨ Updated: Logging + Data Cleanup
+│   ├── fixtures        # Dependency Injection (replacing World) - index.ts
+│   ├── utils           # Test Data & Helpers
+│   │   ├── config.ts
+│   │   └── helpers.ts                   # ✨ NEW: DebugHelper + NetworkMockHelper
+│   └── global-setup.ts # Global One-time Setup
+└── playwright.config.ts # Playwright & BDD Configuration
 ```
 
-## 🧪 Thông tin tài khoản Demo (SUT Credentials)
+## 🧪 Demo Credentials (SUT)
 
-Trang web: `https://www.saucedemo.com/`
+Website: `https://www.saucedemo.com/`
 
 | Role              | Username          | Password       |
 | :---------------- | :---------------- | :------------- |
 | **Standard User** | `standard_user`   | `secret_sauce` |
 | **Locked User**   | `locked_out_user` | `secret_sauce` |
 
-## 📊 Báo cáo (Reporting)
+## 🚀 Advanced Features
 
-Sau khi chạy test, report Allure sẽ được tạo.
-Để xem trực tiếp trên local:
+This project demonstrates enterprise-level best practices:
+
+### 🎲 **Dynamic Test Data with Faker**
+
+Generate unique test data for each run to avoid data collisions:
+
+```bash
+npx playwright test --grep "@faker"
+```
+
+- Uses `@faker-js/faker` to generate random names, emails, addresses
+- Implemented in: `tests/steps/shopping.steps.ts`
+
+### 🧪 **Soft Assertions**
+
+Verify multiple conditions without stopping on first failure:
+
+```bash
+npx playwright test --grep "@soft-assertions"
+```
+
+- Uses `expect.soft()` for comprehensive UI validation
+- Implemented in: `tests/steps/ui.steps.ts`
+
+### 🌐 **Network Mocking**
+
+Simulate network errors and edge cases:
+
+```bash
+npx playwright test --grep "@network-mocking"
+```
+
+- Mock image load failures
+- Simulate slow network conditions
+- Implemented in: `tests/steps/network.steps.ts` + `tests/utils/helpers.ts`
+
+### 🧹 **Automatic Data Cleanup**
+
+Track and cleanup test data after each scenario:
+
+- Automatic cart cleanup
+- Structured logging with timestamps
+- Implemented in: `tests/hooks/index.ts`
+
+### 🔧 **Debug Utilities**
+
+Production-ready debugging helpers:
+
+- `DebugHelper` - Console/Network logging, screenshots
+- `NetworkMockHelper` - Mock APIs, slow network, block domains
+- Implemented in: `tests/utils/helpers.ts`
+
+---
+
+## 📊 Reporting
+
+After running tests, an Allure report will be created.
+To view locally:
 
 ```bash
 npx allure serve allure-results
 ```
 
-Để generate HTML tĩnh:
+To generate static HTML:
 
 ```bash
 npx allure generate -o allure-report allure-results

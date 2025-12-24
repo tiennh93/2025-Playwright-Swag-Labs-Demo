@@ -4,17 +4,17 @@ Feature: User Authentication
   @smoke
   Scenario: Login successfully with standard user
     Given I am on the login page
-    When I login with "standard_user" and "secret_sauce"
+    When I login with valid credentials
     Then I should be redirected to the inventory page
 
   @negative
-  Scenario: Đăng nhập thất bại với User bị khóa
+  Scenario: Login failed with locked out user
     Given I am on the login page
     When I login with "locked_out_user" and "secret_sauce"
     Then I should see the error message "Epic sadface: Sorry, this user has been locked out."
 
   @data-driven
-  Scenario Outline: Đăng nhập với nhiều loại người dùng khác nhau
+  Scenario Outline: Login with different user types
     Given I am on the login page
     When I login with "<username>" and "<password>"
     Then I should be redirected to the inventory page
@@ -26,4 +26,4 @@ Feature: User Authentication
       | performance_glitch_user | secret_sauce |
 
 
-# Playwright sẽ chạy scenario này 3 lần tương ứng với 3 dòng data
+# Playwright will run this scenario 3 times corresponding to the 3 data rows
