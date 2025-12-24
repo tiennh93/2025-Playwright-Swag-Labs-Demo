@@ -1,4 +1,5 @@
-import { Page, Locator } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
+import { BASE_URL } from '../utils/config';
 
 export class LoginPage {
   readonly page: Page;
@@ -16,7 +17,7 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto(process.env.BASE_URL || 'https://www.saucedemo.com/');
+    await this.page.goto(`${BASE_URL}/`);
   }
 
   async login(username: string, pass: string) {

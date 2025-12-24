@@ -1,5 +1,6 @@
 import { chromium } from '@playwright/test';
 import path from 'path';
+import { BASE_URL } from './utils/config';
 
 async function globalSetup() {
   const browser = await chromium.launch();
@@ -7,7 +8,7 @@ async function globalSetup() {
   const page = await context.newPage();
 
   try {
-    await page.goto(process.env.BASE_URL || 'https://www.saucedemo.com/');
+    await page.goto(`${BASE_URL}/`);
 
     await page.waitForLoadState('networkidle');
 

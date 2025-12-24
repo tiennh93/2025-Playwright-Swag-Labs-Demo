@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 import { defineBddConfig } from 'playwright-bdd';
+import { BASE_URL } from './tests/utils/config';
 
 dotenv.config({ path: path.join(__dirname, '.env.local') });
 
@@ -21,7 +22,7 @@ export default defineConfig({
   timeout: 30_000,
   retries: process.env.CI ? 2 : 0,
   use: {
-    baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
+    baseURL: BASE_URL,
     ...(storageState && { storageState }),
     headless: true,
     screenshot: 'only-on-failure',

@@ -2,6 +2,7 @@ import { test as base, createBdd } from 'playwright-bdd';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { LoginPage } from '../pages/LoginPage';
+import { BASE_URL } from '../utils/config';
 
 type MyFixtures = {
   loginPage: LoginPage;
@@ -11,7 +12,8 @@ type MyFixtures = {
 
 export const test = base.extend<MyFixtures>({
   page: async ({ page }, use) => {
-    await page.goto(`${process.env.BASE_URL}/inventory.html`);
+    await page.goto(`${BASE_URL}/inventory.html`);
+    await page.waitForLoadState('networkidle');
     await use(page);
   },
   loginPage: async ({ page }, use) => {
