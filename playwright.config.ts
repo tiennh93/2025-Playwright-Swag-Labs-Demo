@@ -1,18 +1,28 @@
 import { defineConfig } from '@playwright/test';
+import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
 import { defineBddConfig } from 'playwright-bdd';
+
+dotenv.config({ path: path.join(__dirname, '.env.local') });
 
 const testDir = defineBddConfig({
   features: 'tests/features/**/*.feature',
   steps: ['tests/steps/**/*.ts', 'tests/fixtures/**/*.ts'],
 });
 
+const statePath = path.join(__dirname, 'state.json');
+const storageState = fs.existsSync(statePath) ? statePath : undefined;
+
 export default defineConfig({
+  globalSetup: require.resolve('./tests/global-setup'),
   testDir,
   reporter: [['html'], ['allure-playwright']],
   timeout: 30_000,
   retries: process.env.CI ? 2 : 0,
   use: {
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
+    ...(storageState && { storageState }),
     headless: true,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',

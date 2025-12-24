@@ -15,22 +15,16 @@ export class InventoryPage {
     this.productImages = page.locator('.inventory_item_img img');
   }
 
-  // Demo: Handle Select Option (Dropdown)
   async sortProductsBy(optionLabel: string) {
-    // Playwright chọn option thông minh qua label hoặc value
     await this.sortDropdown.selectOption({ label: optionLabel });
   }
 
-  // Demo: Lấy danh sách text từ nhiều phần tử (List Handling)
   async getAllProductPrices(): Promise<number[]> {
-    // allInnerTexts() lấy toàn bộ text của list locator trả về mảng string
     const priceTexts = await this.inventoryItemPrice.allInnerTexts();
 
-    // Convert "$29.99" -> 29.99
     return priceTexts.map((price) => parseFloat(price.replace('$', '')));
   }
 
-  // ... (Giữ nguyên code cũ add to cart) ...
   async addItemToCart(itemName: string) {
     await this.page
       .locator('.inventory_item')
@@ -44,7 +38,6 @@ export class InventoryPage {
   }
 
   async removeItemFromInventory(itemName: string) {
-    // Tìm item theo tên -> Tìm nút Remove bên trong nó
     await this.page
       .locator('.inventory_item')
       .filter({ hasText: itemName })
@@ -53,13 +46,10 @@ export class InventoryPage {
   }
 
   async clickLinkedin() {
-    // Chỉ click thôi, việc chờ tab mới sẽ xử lý ở Step Definition
     await this.linkedinLink.click();
   }
 
   async checkBrokenImages() {
-    // EvaluateAll: Chạy code JS trên tất cả các element tìm được
-    // Trả về mảng các src của ảnh bị lỗi (có độ rộng tự nhiên = 0)
     const brokenImages = await this.productImages.evaluateAll((imgs) => {
       return imgs
         .filter((img) => (img as HTMLImageElement).naturalWidth === 0)

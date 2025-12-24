@@ -1,25 +1,18 @@
 import { expect } from '@playwright/test';
-import { When, Then } from '../fixtures/fixtures'; // Import từ Custom Fixture
 import { DataTable } from 'playwright-bdd';
-
-// --- Sorting Steps ---
+import { Then, When } from '../fixtures/fixtures';
 
 When('I sort products by {string}', async ({ inventoryPage }, option: string) => {
   await inventoryPage.sortProductsBy(option);
 });
 
 Then('the product prices should be sorted in ascending order', async ({ inventoryPage }) => {
-  // 1. Lấy danh sách giá từ UI
   const prices = await inventoryPage.getAllProductPrices();
 
-  // 2. Clone mảng và sort bằng code JS để làm chuẩn so sánh
   const sortedPrices = [...prices].sort((a, b) => a - b);
 
-  // 3. Assertion: So sánh mảng UI với mảng chuẩn
   expect(prices).toEqual(sortedPrices);
 });
-
-// --- Checkout E2E Steps ---
 
 When('I add {string} to cart', async ({ inventoryPage }, itemName: string) => {
   await inventoryPage.addItemToCart(itemName);
@@ -34,7 +27,6 @@ When('I proceed to checkout', async ({ checkoutPage }) => {
 });
 
 When('I fill checkout information with:', async ({ checkoutPage }, dataTable: DataTable) => {
-  // Lấy data từ bảng trong file feature (dòng đầu tiên chứa data)
   const info = dataTable.hashes()[0];
   await checkoutPage.fillInformation(info.firstName, info.lastName, info.zipCode);
 });
@@ -55,14 +47,11 @@ When('I remove {string} from the inventory', async ({ inventoryPage }, itemName:
 });
 
 Then('the cart badge should not be visible', async ({ page }) => {
-  // Assert badge biến mất (hoặc không tồn tại)
   await expect(page.locator('.shopping_cart_badge')).toBeHidden();
 });
 
 Then('all product images should load correctly', async ({ inventoryPage }) => {
   const brokenSrcList = await inventoryPage.checkBrokenImages();
 
-  // Nếu mảng brokenSrcList rỗng ([]) nghĩa là không có ảnh lỗi -> Pass
-  // Nếu dùng user 'problem_user', mảng này sẽ có dữ liệu -> Fail (đúng ý đồ demo)
   expect(brokenSrcList, `Found broken images: ${brokenSrcList}`).toHaveLength(0);
 });

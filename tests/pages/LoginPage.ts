@@ -9,7 +9,6 @@ export class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
-    // Theo pw-product.md: Swag Labs dùng data-test rất chuẩn
     this.usernameInput = page.locator('[data-test="username"]');
     this.passwordInput = page.locator('[data-test="password"]');
     this.loginButton = page.locator('[data-test="login-button"]');
@@ -17,7 +16,7 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
+    await this.page.goto(process.env.BASE_URL || 'https://www.saucedemo.com/');
   }
 
   async login(username: string, pass: string) {

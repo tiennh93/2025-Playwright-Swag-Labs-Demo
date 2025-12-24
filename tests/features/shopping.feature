@@ -2,17 +2,14 @@
 @shopping
 Feature: Chức năng Mua sắm và Thanh toán
 
-  Background:
-    Given I am on the login page
-    And I login with "standard_user" and "secret_sauce"
-
+  # Background:
+  #   Given I am on the login page
+  #   And I login with "standard_user" and "secret_sauce"
   Scenario: Sắp xếp sản phẩm theo giá từ thấp đến cao
-    # Demo: Handle Dropdown & List Assertions
     When I sort products by "Price (low to high)"
     Then the product prices should be sorted in ascending order
 
   Scenario: Quy trình thanh toán thành công (End-to-End)
-    # Demo: Complete User Flow
     When I add "Sauce Labs Backpack" to cart
     And I go to cart page
     And I proceed to checkout

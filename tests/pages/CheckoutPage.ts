@@ -12,7 +12,6 @@ export class CheckoutPage {
 
   constructor(page: Page) {
     this.page = page;
-    // Locator strategy: data-test là chân ái
     this.checkoutBtn = page.locator('[data-test="checkout"]');
     this.firstNameInput = page.locator('[data-test="firstName"]');
     this.lastNameInput = page.locator('[data-test="lastName"]');
