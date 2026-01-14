@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { faker } from '@faker-js/faker';
+
 import { DataTable } from 'playwright-bdd';
 import { Then, When } from '../fixtures';
 
@@ -43,15 +43,17 @@ When('I fill checkout information with:', async ({ checkoutPage }, dataTable: Da
   await checkoutPage.fillInformation(info.firstName, info.lastName, info.zipCode);
 });
 
+import { UserFactory } from '../factories/user-factory';
+
 // New step: Use Faker to generate random checkout data
 When('I fill checkout information with random data', async ({ checkoutPage }) => {
-  const firstName = faker.person.firstName();
-  const lastName = faker.person.lastName();
-  const zipCode = faker.location.zipCode();
+  const info = UserFactory.randomCheckoutInfo();
 
-  console.log(`🎲 Generated random checkout data: ${firstName} ${lastName}, ${zipCode}`);
+  console.log(
+    `🎲 Generated random checkout data: ${info.firstName} ${info.lastName}, ${info.zipCode}`
+  );
 
-  await checkoutPage.fillInformation(firstName, lastName, zipCode);
+  await checkoutPage.fillInformation(info.firstName, info.lastName, info.zipCode);
 });
 
 When('I finish the checkout', async ({ checkoutPage }) => {

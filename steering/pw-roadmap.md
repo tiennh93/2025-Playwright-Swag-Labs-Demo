@@ -54,7 +54,31 @@ _Goal: Showcase "killer features" of Playwright._
 1.  **Live Coding Flow:** Practice coding without documentation for basic parts.
 2.  **Q&A Handling:** Prepare for comparison questions (vs Selenium, vs Cypress).
 
-## Giai đoạn 4: Soft Skills (Thuyết trình)
+## Phase 5: Advanced Testing (Enterprise)
 
-1.  **Live Coding Flow:** Tập luyện code không nhìn tài liệu cho các phần cơ bản.
-2.  **Q&A Handling:** Chuẩn bị tâm lý trả lời các câu hỏi so sánh (vs Selenium, vs Cypress).
+_Goal: Implement enterprise-grade testing capabilities._
+
+1.  **Accessibility Testing:**
+    - `@axe-core/playwright` integration.
+    - WCAG 2.0 Level A & AA compliance.
+    - Keyboard-only navigation testing.
+2.  **Security Testing:**
+    - XSS input sanitization.
+    - SQL injection prevention.
+    - Authentication boundary testing.
+3.  **Performance Testing:**
+    - Core Web Vitals (FCP, LCP).
+    - Performance budgets with thresholds.
+    - Lighthouse integration.
+4.  **Mobile Testing:**
+    - Touch gestures with `hasTouch: true`.
+    - Orientation testing (landscape/portrait).
+    - Touch target size validation.
+5.  **Test Data Factories:**
+    - Factory Pattern for type-safe data.
+    - UserFactory, ProductFactory.
+    - Reusable across all tests.
+6.  **Custom Reporters:**
+    - Slack notifications.
+    - Metrics dashboard generation.
+    - Conditional CI/Local reporters.

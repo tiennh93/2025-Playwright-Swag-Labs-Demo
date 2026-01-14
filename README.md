@@ -24,9 +24,11 @@ This project was built to illustrate:
 - **Language:** TypeScript
 - **BDD Integration:** [playwright-bdd](https://github.com/vitalets/playwright-bdd)
 - **Assertion:** Playwright Expect
-- **Test Data:** [@faker-js/faker](https://fakerjs.dev/) - Dynamic test data generation
-- **Reporting:** [Allure Playwright](https://github.com/allure-framework/allure-js/tree/master/packages/allure-playwright)
-- **CI/CD:** GitHub Actions
+- **Test Data:** [@faker-js/faker](https://fakerjs.dev/) + Custom Factories
+- **Accessibility:** [@axe-core/playwright](https://github.com/dequelabs/axe-core-npm)
+- **Performance:** Lighthouse + Navigation Timing API
+- **Reporting:** Allure, HTML, JSON, Slack Notifications
+- **CI/CD:** GitHub Actions (4-shard parallel execution)
 
 ## 🚀 Installation
 
@@ -108,41 +110,41 @@ The structure follows Clean Code principles and separates concerns.
 ```ascii
 sauce-demo
 ├── .features-gen       # [Generated] Test code generated from .feature (playwright-bdd)
-├── .github/workflows   # CI/CD Pipelines
+├── .github/workflows   # CI/CD Pipelines (4-shard parallel execution)
 ├── allure-results      # [Generated] Raw data for Allure
 ├── allure-report       # [Generated] HTML Report
+├── scripts             # PowerShell automation scripts
+│   ├── run-tests.ps1            # Main test runner with Allure report
+│   ├── generate-dashboard.ps1  # Metrics dashboard generator
+│   ├── flaky-test.ps1           # Flaky test detection
+│   └── quarantine.ps1           # Quarantine management
 ├── steering            # Project documentation & best practices
-│   ├── playwright-checklist.md  # Enterprise best practices checklist
-│   ├── pw-product.md            # Product specification
-│   ├── pw-structure.md          # Code structure documentation
-│   ├── pw-roadmap.md            # Learning roadmap
-│   └── pw-tasks.md              # Task list & guides
+│   ├── playwright-checklist.md  # Enterprise best practices (94.5% complete)
+│   ├── sauce-demo-checklist.md  # Project-specific checklist
+│   └── pw-*.md                  # Product, structure, roadmap docs
 ├── tests
 │   ├── features        # Gherkin Files (Test Scenarios)
-│   │   ├── login.feature
-│   │   ├── shopping.feature
-│   │   ├── social.feature
-│   │   ├── ui.feature
-│   │   ├── advanced-patterns.feature    # ✨ NEW: Faker, Soft Assertions, Cleanup
-│   │   └── network-errors.feature       # ✨ NEW: Network Mocking
-│   ├── steps           # Step Definitions (Logic Code)
-│   │   ├── login.steps.ts
-│   │   ├── shopping.steps.ts            # ✨ Updated: Faker integration
-│   │   ├── social.steps.ts
-│   │   ├── ui.steps.ts                  # ✨ Updated: Soft Assertions
-│   │   └── network.steps.ts             # ✨ NEW: Network mocking steps
-│   ├── pages           # Page Objects (Locators & Actions)
-│   │   ├── login-page.ts
-│   │   ├── inventory-page.ts
-│   │   └── checkout-page.ts
-│   ├── hooks           # Setup & Teardown (Before/After) - index.ts
-│   │   └── index.ts                     # ✨ Updated: Logging + Data Cleanup
-│   ├── fixtures        # Dependency Injection (replacing World) - index.ts
-│   ├── utils           # Test Data & Helpers
-│   │   ├── config.ts
-│   │   └── helpers.ts                   # ✨ NEW: DebugHelper + NetworkMockHelper
-│   └── global-setup.ts # Global One-time Setup
-└── playwright.config.ts # Playwright & BDD Configuration
+│   │   ├── login.feature         # Authentication tests
+│   │   ├── shopping.feature      # E-commerce flows
+│   │   ├── accessibility.feature # WCAG 2.0 compliance (@axe-core)
+│   │   ├── security.feature      # XSS, SQL injection, auth boundaries
+│   │   ├── performance.feature   # Core Web Vitals, Lighthouse
+│   │   ├── mobile.feature        # Touch gestures, orientation
+│   │   ├── keyboard.feature      # Keyboard-only navigation
+│   │   ├── health.feature        # Application health checks
+│   │   └── ...                   # ui, network, social, storage
+│   ├── steps           # Step Definitions
+│   ├── pages           # Page Objects (POM)
+│   ├── factories       # Test Data Factories
+│   │   ├── user-factory.ts       # User generation (valid/invalid/XSS)
+│   │   └── product-factory.ts    # Product helpers & cart calculations
+│   ├── reporters       # Custom Reporters
+│   │   └── slack-reporter.ts     # Slack webhook notifications
+│   ├── hooks           # Before/After hooks with cleanup
+│   ├── fixtures        # Dependency Injection
+│   ├── utils           # Helpers (Debug, Network, Performance, etc.)
+│   └── global-setup.ts # Global setup with health check
+└── playwright.config.ts # Config with conditional reporters
 ```
 
 ## 🧪 Demo Credentials (SUT)
@@ -207,6 +209,73 @@ Production-ready debugging helpers:
 - `DebugHelper` - Console/Network logging, screenshots
 - `NetworkMockHelper` - Mock APIs, slow network, block domains
 - Implemented in: `tests/utils/helpers.ts`
+
+### ♿ **Accessibility Testing (WCAG 2.0)**
+
+Automated accessibility audits:
+
+```bash
+npm run test:a11y
+```
+
+- Uses `@axe-core/playwright` for WCAG 2.0 Level A & AA
+- Scans critical pages for violations
+- Keyboard navigation testing
+
+### 🔒 **Security Testing**
+
+Basic security validation:
+
+```bash
+npm run test:security
+```
+
+- XSS input sanitization
+- SQL injection prevention
+- Auth boundary testing
+- Session invalidation
+
+### 📊 **Performance Testing**
+
+Core Web Vitals measurement:
+
+```bash
+npm run test:perf
+```
+
+- FCP, LCP, Load Time metrics
+- Performance budgets
+- Lighthouse integration
+
+### 📱 **Mobile Testing**
+
+Touch and orientation testing:
+
+```bash
+npm run test:mobile
+```
+
+- Touch target size validation (44x44px min)
+- Landscape/Portrait orientation
+- Mobile Chrome with `hasTouch: true`
+
+### 🏭 **Test Data Factories**
+
+Type-safe test data generation:
+
+- `UserFactory` - Valid/invalid users, XSS/SQL injection vectors
+- `ProductFactory` - Product helpers, cart calculations
+- Import from `tests/factories`
+
+### 📈 **Custom Reporters**
+
+Multiple reporting options:
+
+- **Allure** - Beautiful visual reports
+- **HTML** - Built-in Playwright report
+- **JSON** - Machine-readable results
+- **Slack** - Team notifications via webhook
+- **Dashboard** - `scripts/generate-dashboard.ps1`
 
 ---
 

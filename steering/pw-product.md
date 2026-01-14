@@ -62,6 +62,49 @@ Các scenarios nâng cao để demo enterprise-level testing:
     - **Feature:** `advanced-patterns.feature`
     - _Demo Technique:_ Track test data, cleanup in `After` hooks.
 
+5.  **Accessibility Testing (WCAG 2.0):**
+    - Automated accessibility audits using axe-core.
+    - Keyboard-only navigation testing.
+    - **Tags:** `@accessibility`, `@a11y`, `@keyboard`
+    - **Features:** `accessibility.feature`, `keyboard.feature`
+    - _Demo Technique:_ `@axe-core/playwright`, WCAG 2.0 Level A & AA.
+
+6.  **Security Testing:**
+    - XSS input sanitization testing.
+    - SQL injection prevention.
+    - Auth boundary testing.
+    - **Tags:** `@security`, `@xss`, `@auth-boundary`
+    - **Feature:** `security.feature`
+    - _Demo Technique:_ Security payloads via `UserFactory`.
+
+7.  **Performance Testing:**
+    - Core Web Vitals measurement (FCP, LCP).
+    - Performance budgets.
+    - **Tags:** `@performance`, `@core-web-vitals`
+    - **Feature:** `performance.feature`
+    - _Demo Technique:_ Navigation Timing API + Lighthouse.
+
+8.  **Mobile Testing:**
+    - Touch gesture testing with `hasTouch: true`.
+    - Orientation testing (landscape/portrait).
+    - Touch target size validation (44x44px).
+    - **Tags:** `@mobile`, `@touch`, `@orientation`
+    - **Feature:** `mobile.feature`
+    - _Demo Technique:_ Mobile Chrome project, `.tap()` method.
+
+9.  **Health Checks:**
+    - Application availability verification.
+    - Page load performance baseline.
+    - **Tags:** `@health`, `@smoke`
+    - **Feature:** `health.feature`
+    - _Demo Technique:_ API health endpoint check in global-setup.
+
+10. **Test Data Factories:**
+    - Type-safe user generation (valid/invalid/XSS/SQL).
+    - Product helpers with cart calculations.
+    - **Location:** `tests/factories/`
+    - _Demo Technique:_ Factory Pattern for reusable test data.
+
 ## ⚙️ 5. Technical Mapping (Playwright Strategy)
 
 - **Selector Strategy:**
@@ -70,3 +113,7 @@ Các scenarios nâng cao để demo enterprise-level testing:
   - **Benefit:** Code uses `page.getByTestId('username')` instead of verbose CSS Selectors -> Clean code, easy maintenance.
 - **State Management:**
   - Each Scenario is a completely new Context (Incognito) to ensure independence.
+- **Reporting:**
+  - Allure, HTML, JSON reporters with conditional CI/Local configuration.
+  - Slack notifications for team alerts.
+  - Metrics dashboard via `scripts/generate-dashboard.ps1`.
