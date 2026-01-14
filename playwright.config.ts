@@ -18,7 +18,14 @@ const storageState = fs.existsSync(statePath) ? statePath : undefined;
 export default defineConfig({
   globalSetup: require.resolve('./tests/global-setup'),
   testDir,
-  reporter: [['html'], ['allure-playwright']],
+  reporter: process.env.CI
+    ? [['github'], ['list'], ['allure-playwright'], ['json', { outputFile: 'test-results.json' }]]
+    : [
+        ['list'],
+        ['html', { open: 'never' }],
+        ['allure-playwright'],
+        ['json', { outputFile: 'test-results.json' }],
+      ],
   timeout: 30_000,
   retries: process.env.CI ? 2 : 0,
   use: {

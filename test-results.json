@@ -1,0 +1,4287 @@
+{
+  "config": {
+    "configFile": "C:\\Practice\\sauce-demo\\playwright.config.ts",
+    "rootDir": "C:/Practice/sauce-demo/.features-gen",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "C:\\Practice\\sauce-demo\\tests\\global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 6
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      ["list", null],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      ["C:\\Practice\\sauce-demo\\node_modules\\allure-playwright\\dist\\cjs\\index.js", null],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Practice/sauce-demo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Practice/sauce-demo/.features-gen",
+        "testIgnore": [],
+        "testMatch": ["**/*.@(spec|test).?(c|m)[jt]s?(x)"],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Practice/sauce-demo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Practice/sauce-demo/.features-gen",
+        "testIgnore": [],
+        "testMatch": ["**/*.@(spec|test).?(c|m)[jt]s?(x)"],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Practice/sauce-demo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Practice/sauce-demo/.features-gen",
+        "testIgnore": [],
+        "testMatch": ["**/*.@(spec|test).?(c|m)[jt]s?(x)"],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Practice/sauce-demo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "C:/Practice/sauce-demo/.features-gen",
+        "testIgnore": [],
+        "testMatch": ["**/*.@(spec|test).?(c|m)[jt]s?(x)"],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests\\features\\accessibility.feature.spec.js",
+      "file": "tests/features/accessibility.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Accessibility Testing",
+          "file": "tests/features/accessibility.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Login page should have no critical accessibility violations",
+              "ok": true,
+              "tags": ["accessibility", "a11y", "critical"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11294,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 439
+                        },
+                        {
+                          "title": "Then the login page should have no critical accessibility violations",
+                          "duration": 1246
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:14.807Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ac0a6d3c3034b45b4720-4389285688ad7bb7a0ee",
+              "file": "tests/features/accessibility.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Inventory page should have no critical accessibility violations",
+              "ok": true,
+              "tags": ["accessibility", "a11y", "critical"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4641,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📋 Inventory Page Accessibility Violations:\n"
+                        },
+                        {
+                          "text": "  [CRITICAL] select-name: Ensure select element has an accessible name (Known Issue - Excluded)\n"
+                        },
+                        {
+                          "text": "\n  Total: 1, Critical (not excluded): 0\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Then the inventory page should have no critical accessibility violations",
+                          "duration": 2193
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:26.544Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ac0a6d3c3034b45b4720-120b737b00a00fd6b223",
+              "file": "tests/features/accessibility.feature.spec.js",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "Product cards should be accessible",
+              "ok": true,
+              "tags": ["accessibility", "a11y"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2136,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔍 Checking 6 product cards for accessibility...\n"
+                        },
+                        {
+                          "text": "✅ All product cards passed accessibility checks\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Then all product cards should have proper accessibility attributes",
+                          "duration": 128
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:31.224Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ac0a6d3c3034b45b4720-4aa6e7887839d8fa72f2",
+              "file": "tests/features/accessibility.feature.spec.js",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "Form inputs should have proper labels",
+              "ok": true,
+              "tags": ["accessibility", "a11y"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3511,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Form accessibility check completed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 446
+                        },
+                        {
+                          "title": "Then all form inputs should have associated labels",
+                          "duration": 934
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:33.390Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ac0a6d3c3034b45b4720-cf9c46c78ca73c237cad",
+              "file": "tests/features/accessibility.feature.spec.js",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "Interactive elements should have proper ARIA labels",
+              "ok": true,
+              "tags": ["accessibility", "a11y", "aria"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3422,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📦 On inventory page\n"
+                        },
+                        {
+                          "text": "🔍 Checking 8 buttons for accessible names...\n"
+                        },
+                        {
+                          "text": "✅ Button accessibility check: 8/8 buttons have accessible names\n"
+                        },
+                        {
+                          "text": "🛒 Shopping Cart ARIA check:\n"
+                        },
+                        {
+                          "text": "  aria-label: (none)\n"
+                        },
+                        {
+                          "text": "  title: (none)\n"
+                        },
+                        {
+                          "text": "  ⚠️ Recommendation: Add aria-label=\"Shopping Cart\" to cart link\n"
+                        },
+                        {
+                          "text": "☰ Menu Button ARIA check:\n"
+                        },
+                        {
+                          "text": "  aria-label: (none)\n"
+                        },
+                        {
+                          "text": "  aria-expanded: (none)\n"
+                        },
+                        {
+                          "text": "  aria-controls: (none)\n"
+                        },
+                        {
+                          "text": "  ⚠️ Recommendations:\n"
+                        },
+                        {
+                          "text": "    - Add aria-label=\"Open navigation menu\"\n"
+                        },
+                        {
+                          "text": "    - Add aria-expanded state\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page",
+                          "duration": 30
+                        },
+                        {
+                          "title": "Then all buttons should have accessible names",
+                          "duration": 101
+                        },
+                        {
+                          "title": "And the shopping cart should have an ARIA label",
+                          "duration": 10
+                        },
+                        {
+                          "title": "And the menu button should have an ARIA label",
+                          "duration": 14
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:36.936Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ac0a6d3c3034b45b4720-1fe01ee9696503f64275",
+              "file": "tests/features/accessibility.feature.spec.js",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "Navigation elements should have proper ARIA attributes",
+              "ok": true,
+              "tags": ["accessibility", "a11y", "aria"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2701,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📦 On inventory page\n"
+                        },
+                        {
+                          "text": "📋 Sidebar Menu ARIA check:\n"
+                        },
+                        {
+                          "text": "  role: (none)\n"
+                        },
+                        {
+                          "text": "  aria-hidden: false\n"
+                        },
+                        {
+                          "text": "  Menu items: 4\n"
+                        },
+                        {
+                          "text": "    [1] All Items (tabindex: auto)\n"
+                        },
+                        {
+                          "text": "    [2] About (tabindex: auto)\n"
+                        },
+                        {
+                          "text": "    [3] Logout (tabindex: auto)\n"
+                        },
+                        {
+                          "text": "    [4] Reset App State (tabindex: auto)\n"
+                        },
+                        {
+                          "text": "  ✅ Sidebar menu check completed\n"
+                        },
+                        {
+                          "text": "📦 Product List ARIA check:\n"
+                        },
+                        {
+                          "text": "  Container role: (none - uses default)\n"
+                        },
+                        {
+                          "text": "  Total items: 6\n"
+                        },
+                        {
+                          "text": "  First item:\n"
+                        },
+                        {
+                          "text": "    role: (none)\n"
+                        },
+                        {
+                          "text": "    aria-label: (none)\n"
+                        },
+                        {
+                          "text": "    Add button text: Add to cart\n"
+                        },
+                        {
+                          "text": "    Add button aria-label: (uses text content)\n"
+                        },
+                        {
+                          "text": "  ⚠️ Recommendation: Consider using role=\"list\" on container and role=\"listitem\" on items\n"
+                        },
+                        {
+                          "text": "  ✅ Product list check completed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page",
+                          "duration": 23
+                        },
+                        {
+                          "title": "Then the sidebar menu should have proper ARIA attributes",
+                          "duration": 659
+                        },
+                        {
+                          "title": "And the product list should have proper ARIA attributes",
+                          "duration": 33
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:40.379Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ac0a6d3c3034b45b4720-380c6ca3e432cce72059",
+              "file": "tests/features/accessibility.feature.spec.js",
+              "line": 31,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\advanced-patterns.feature.spec.js",
+      "file": "tests/features/advanced-patterns.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Advanced Testing Patterns",
+          "file": "tests/features/advanced-patterns.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Checkout with dynamically generated user data",
+              "ok": true,
+              "tags": ["smoke", "dynamic-data", "faker"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 9623,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🎲 Generated random checkout data: Garland Predovic, 68875-9531\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "When I add \"Sauce Labs Backpack\" to cart",
+                          "duration": 62
+                        },
+                        {
+                          "title": "And I go to cart page",
+                          "duration": 42
+                        },
+                        {
+                          "title": "And I proceed to checkout",
+                          "duration": 66
+                        },
+                        {
+                          "title": "And I fill checkout information with random data",
+                          "duration": 123
+                        },
+                        {
+                          "title": "And I finish the checkout",
+                          "duration": 112
+                        },
+                        {
+                          "title": "Then I should see the order confirmation message \"Thank you for your order!\"",
+                          "duration": 37
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:14.676Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3c0022e41c43fde24442-f27fe7a03a9996a2c2f8",
+              "file": "tests/features/advanced-patterns.feature.spec.js",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "Verify all UI elements using soft assertions",
+              "ok": true,
+              "tags": ["smoke", "dynamic-data", "soft-assertions"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4558,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Header verification completed\n"
+                        },
+                        {
+                          "text": "✅ Completed all product card verifications\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Then I verify the header contains all required elements",
+                          "duration": 24
+                        },
+                        {
+                          "title": "And I verify all product card details are displayed correctly",
+                          "duration": 22
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:24.638Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3c0022e41c43fde24442-848e6edb9166ea4159f8",
+              "file": "tests/features/advanced-patterns.feature.spec.js",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "Cart cleanup after adding multiple items",
+              "ok": true,
+              "tags": ["smoke", "dynamic-data", "data-cleanup"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4037,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "When I add \"Sauce Labs Backpack\" to cart",
+                          "duration": 43
+                        },
+                        {
+                          "title": "And I add \"Sauce Labs Bike Light\" to cart",
+                          "duration": 43
+                        },
+                        {
+                          "title": "And I add \"Sauce Labs Bolt T-Shirt\" to cart",
+                          "duration": 35
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:29.223Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3c0022e41c43fde24442-3d43b60e23014f85911d",
+              "file": "tests/features/advanced-patterns.feature.spec.js",
+              "line": 25,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\health.feature.spec.js",
+      "file": "tests/features/health.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Application Health Check",
+          "file": "tests/features/health.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Verify application availability",
+              "ok": true,
+              "tags": ["health", "smoke"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 10986,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Page Load Time: 2872ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I check the application health status",
+                          "duration": 1166
+                        },
+                        {
+                          "title": "Then the application should respond with status code 200",
+                          "duration": 8
+                        },
+                        {
+                          "title": "And the loading performance should be acceptable",
+                          "duration": 2876
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:14.782Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72c1874f73a0fc68ecca-10afd09efbda91c46bc3",
+              "file": "tests/features/health.feature.spec.js",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\keyboard.feature.spec.js",
+      "file": "tests/features/keyboard.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Keyboard Navigation Testing",
+          "file": "tests/features/keyboard.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Complete login flow using keyboard only",
+              "ok": true,
+              "tags": ["accessibility", "keyboard", "smoke"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 10582,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "⌨️ Filled login form using keyboard\n"
+                        },
+                        {
+                          "text": "✅ Form submitted successfully with Enter key\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 202
+                        },
+                        {
+                          "title": "When I fill the login form using keyboard only",
+                          "duration": 111
+                        },
+                        {
+                          "title": "Then I should be able to submit the form with Enter key",
+                          "duration": 44
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:14.816Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55c9d8e51eec919d4b6a-1bb4372760148c572803",
+              "file": "tests/features/keyboard.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Navigate through inventory page with Tab key",
+              "ok": true,
+              "tags": ["accessibility", "keyboard"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2489,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "  Tab 1: BUTTON#react-burger-menu-btn\n"
+                        },
+                        {
+                          "text": "  Tab 2: SELECT\n"
+                        },
+                        {
+                          "text": "  Tab 3: A#item_4_img_link\n"
+                        },
+                        {
+                          "text": "  Tab 4: A#item_4_title_link\n"
+                        },
+                        {
+                          "text": "  Tab 5: BUTTON#add-to-cart-sauce-labs-backpack\n"
+                        },
+                        {
+                          "text": "  Tab 6: A#item_0_img_link\n"
+                        },
+                        {
+                          "text": "  Tab 7: A#item_0_title_link\n"
+                        },
+                        {
+                          "text": "  Tab 8: BUTTON#add-to-cart-sauce-labs-bike-light\n"
+                        },
+                        {
+                          "text": "  Tab 9: A#item_1_img_link\n"
+                        },
+                        {
+                          "text": "  Tab 10: A#item_1_title_link\n"
+                        },
+                        {
+                          "text": "  Tab 11: BUTTON#add-to-cart-sauce-labs-bolt-t-shirt\n"
+                        },
+                        {
+                          "text": "  Tab 12: A#item_5_img_link\n"
+                        },
+                        {
+                          "text": "  Tab 13: A#item_5_title_link\n"
+                        },
+                        {
+                          "text": "  Tab 14: BUTTON#add-to-cart-sauce-labs-fleece-jacket\n"
+                        },
+                        {
+                          "text": "  Tab 15: A#item_2_img_link\n"
+                        },
+                        {
+                          "text": "  Tab 16: A#item_2_title_link\n"
+                        },
+                        {
+                          "text": "  Tab 17: BUTTON#add-to-cart-sauce-labs-onesie\n"
+                        },
+                        {
+                          "text": "  Tab 18: A#item_3_img_link\n"
+                        },
+                        {
+                          "text": "  Tab 19: A#item_3_title_link\n"
+                        },
+                        {
+                          "text": "  Tab 20: BUTTON#add-to-cart-test.allthethings()-t-shirt-(red)\n"
+                        },
+                        {
+                          "text": "✅ Navigated through 20 interactive elements\n"
+                        },
+                        {
+                          "text": "✅ Focus indicator is visible\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Then I should be able to navigate all interactive elements with Tab",
+                          "duration": 289
+                        },
+                        {
+                          "title": "And the focus should be visible on each element",
+                          "duration": 14
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:25.695Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55c9d8e51eec919d4b6a-38e46f4b17d7526cd3cb",
+              "file": "tests/features/keyboard.feature.spec.js",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "Add item to cart using keyboard",
+              "ok": true,
+              "tags": ["accessibility", "keyboard"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2569,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "⌨️ Focused on Add to cart button after 5 tabs\n"
+                        },
+                        {
+                          "text": "⌨️ Pressed Enter to add item\n"
+                        },
+                        {
+                          "text": "✅ Item added to cart. Cart count: 1\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "When I focus on the first product add button using Tab",
+                          "duration": 51
+                        },
+                        {
+                          "title": "And I press Enter to add the item",
+                          "duration": 9
+                        },
+                        {
+                          "title": "Then the item should be added to cart",
+                          "duration": 46
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:28.210Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55c9d8e51eec919d4b6a-3bf594cf5eadefdd3668",
+              "file": "tests/features/keyboard.feature.spec.js",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "Open menu using keyboard",
+              "ok": true,
+              "tags": ["accessibility", "keyboard"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3719,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "⌨️ Focused on menu button\n"
+                        },
+                        {
+                          "text": "⌨️ Pressed Enter to open menu\n"
+                        },
+                        {
+                          "text": "✅ Menu is visible\n"
+                        },
+                        {
+                          "text": "📋 Menu has 4 items\n"
+                        },
+                        {
+                          "text": "  Menu item 1: Logout\n"
+                        },
+                        {
+                          "text": "  Menu item 2: Reset App State\n"
+                        },
+                        {
+                          "text": "  Menu item 3: Close Menu\n"
+                        },
+                        {
+                          "text": "  Menu item 4: Name (A to Z)\nName (Z to A)\nPrice (low to high)\nPrice (high to low)\n"
+                        },
+                        {
+                          "text": "✅ Successfully navigated menu items with keyboard\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "When I focus on the menu button using Tab",
+                          "duration": 30
+                        },
+                        {
+                          "title": "And I press Enter to open the menu",
+                          "duration": 310
+                        },
+                        {
+                          "title": "Then the menu should be visible",
+                          "duration": 7
+                        },
+                        {
+                          "title": "And I can navigate menu items with arrow keys",
+                          "duration": 34
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:30.807Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55c9d8e51eec919d4b6a-ea336201660ea482d934",
+              "file": "tests/features/keyboard.feature.spec.js",
+              "line": 23,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\login.feature.spec.js",
+      "file": "tests/features/login.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "User Authentication",
+          "file": "tests/features/login.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Login successfully with standard user",
+              "ok": true,
+              "tags": ["authentication", "smoke", "REQ-AUTH-001"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 9669,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 428
+                        },
+                        {
+                          "title": "When I login with valid credentials",
+                          "duration": 148
+                        },
+                        {
+                          "title": "Then I should be redirected to the inventory page",
+                          "duration": 39
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:14.818Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d072502f32e4ac34ed4c-929a5a026e08a6e9c093",
+              "file": "tests/features/login.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Login failed with locked out user",
+              "ok": true,
+              "tags": ["authentication", "negative", "REQ-AUTH-002"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 2497,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 96
+                        },
+                        {
+                          "title": "When I login with \"locked_out_user\" and \"secret_sauce\"",
+                          "duration": 205
+                        },
+                        {
+                          "title": "Then I should see the error message \"Epic sadface: Sorry, this user has been locked out.\"",
+                          "duration": 15
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:25.178Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d072502f32e4ac34ed4c-c31e43141ae8c30d0d2a",
+              "file": "tests/features/login.feature.spec.js",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "Login with special characters in username",
+              "ok": true,
+              "tags": ["authentication", "negative"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 2097,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 124
+                        },
+                        {
+                          "title": "When I login with \"user<script>alert('xss')</script>\" and \"password\"",
+                          "duration": 90
+                        },
+                        {
+                          "title": "Then I should see the error message \"Epic sadface: Username and password do not match any user in this service\"",
+                          "duration": 9
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:53.706Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d072502f32e4ac34ed4c-0793df8ed9d241a5a07e",
+              "file": "tests/features/login.feature.spec.js",
+              "line": 74,
+              "column": 7
+            },
+            {
+              "title": "Direct access to inventory without login should redirect to login",
+              "ok": true,
+              "tags": ["authentication", "session"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1773,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ User is on the login page\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I directly navigate to the inventory page",
+                          "duration": 177
+                        },
+                        {
+                          "title": "Then I should be on the login page",
+                          "duration": 27
+                        },
+                        {
+                          "title": "And I should see the error message \"Epic sadface: You can only access '/inventory.html' when you are logged in.\"",
+                          "duration": 10
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:55.826Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d072502f32e4ac34ed4c-4e65cfbc1f53f589f795",
+              "file": "tests/features/login.feature.spec.js",
+              "line": 80,
+              "column": 7
+            },
+            {
+              "title": "Logout should clear session and redirect to login",
+              "ok": true,
+              "tags": ["authentication", "session"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 3737,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Logged in as standard_user\n"
+                        },
+                        {
+                          "text": "✅ Clicked logout button\n"
+                        },
+                        {
+                          "text": "✅ User is on the login page\n"
+                        },
+                        {
+                          "text": "✅ Direct access to inventory blocked after logout\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am logged in as \"standard_user\"",
+                          "duration": 372
+                        },
+                        {
+                          "title": "When I click the logout button",
+                          "duration": 965
+                        },
+                        {
+                          "title": "Then I should be on the login page",
+                          "duration": 5
+                        },
+                        {
+                          "title": "And I should not be able to access the inventory page directly",
+                          "duration": 434
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:57.615Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d072502f32e4ac34ed4c-971d9e50596b740d0614",
+              "file": "tests/features/login.feature.spec.js",
+              "line": 86,
+              "column": 7
+            },
+            {
+              "title": "Session should persist after page refresh",
+              "ok": true,
+              "tags": ["authentication", "session"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 2190,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Logged in as standard_user\n"
+                        },
+                        {
+                          "text": "🔄 Page reloaded\n"
+                        },
+                        {
+                          "text": "✅ Session persisted after reload\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am logged in as \"standard_user\"",
+                          "duration": 148
+                        },
+                        {
+                          "title": "When I reload the page",
+                          "duration": 99
+                        },
+                        {
+                          "title": "Then I should still be on the inventory page",
+                          "duration": 19
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:31:01.372Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d072502f32e4ac34ed4c-a0aa19a14283a74712fd",
+              "file": "tests/features/login.feature.spec.js",
+              "line": 93,
+              "column": 7
+            }
+          ],
+          "suites": [
+            {
+              "title": "Login with different user types",
+              "file": "tests/features/login.feature.spec.js",
+              "line": 18,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Example #1",
+                  "ok": true,
+                  "tags": ["authentication", "data-driven"],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 4,
+                          "status": "passed",
+                          "duration": 2651,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Given I am on the login page",
+                              "duration": 93
+                            },
+                            {
+                              "title": "When I login with \"standard_user\" and \"secret_sauce\"",
+                              "duration": 97
+                            },
+                            {
+                              "title": "Then I should be redirected to the inventory page",
+                              "duration": 11
+                            }
+                          ],
+                          "startTime": "2026-01-14T14:30:27.706Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d072502f32e4ac34ed4c-2acf868f8bf2b8aedb50",
+                  "file": "tests/features/login.feature.spec.js",
+                  "line": 20,
+                  "column": 9
+                },
+                {
+                  "title": "Example #2",
+                  "ok": true,
+                  "tags": ["authentication", "data-driven"],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 4,
+                          "status": "passed",
+                          "duration": 2203,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Given I am on the login page",
+                              "duration": 127
+                            },
+                            {
+                              "title": "When I login with \"problem_user\" and \"secret_sauce\"",
+                              "duration": 127
+                            },
+                            {
+                              "title": "Then I should be redirected to the inventory page",
+                              "duration": 23
+                            }
+                          ],
+                          "startTime": "2026-01-14T14:30:30.388Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d072502f32e4ac34ed4c-718b1447d136cd10ee14",
+                  "file": "tests/features/login.feature.spec.js",
+                  "line": 26,
+                  "column": 9
+                },
+                {
+                  "title": "Example #3",
+                  "ok": true,
+                  "tags": ["authentication", "data-driven"],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 4,
+                          "status": "passed",
+                          "duration": 8039,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Given I am on the login page",
+                              "duration": 394
+                            },
+                            {
+                              "title": "When I login with \"performance_glitch_user\" and \"secret_sauce\"",
+                              "duration": 5129
+                            },
+                            {
+                              "title": "Then I should be redirected to the inventory page",
+                              "duration": 12
+                            }
+                          ],
+                          "startTime": "2026-01-14T14:30:32.618Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d072502f32e4ac34ed4c-245fb329955af6e27874",
+                  "file": "tests/features/login.feature.spec.js",
+                  "line": 32,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "Login with invalid credentials",
+              "file": "tests/features/login.feature.spec.js",
+              "line": 40,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Example #1",
+                  "ok": true,
+                  "tags": ["authentication", "negative", "invalid-credentials"],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 4,
+                          "status": "passed",
+                          "duration": 3039,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Given I am on the login page",
+                              "duration": 90
+                            },
+                            {
+                              "title": "When I login with \"wrong_user\" and \"secret_sauce\"",
+                              "duration": 92
+                            },
+                            {
+                              "title": "Then I should see the error message \"Epic sadface: Username and password do not match any user in this service\"",
+                              "duration": 10
+                            }
+                          ],
+                          "startTime": "2026-01-14T14:30:40.680Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d072502f32e4ac34ed4c-36ede98023fafaf4949d",
+                  "file": "tests/features/login.feature.spec.js",
+                  "line": 42,
+                  "column": 9
+                },
+                {
+                  "title": "Example #2",
+                  "ok": true,
+                  "tags": ["authentication", "negative", "invalid-credentials"],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 4,
+                          "status": "passed",
+                          "duration": 2573,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Given I am on the login page",
+                              "duration": 352
+                            },
+                            {
+                              "title": "When I login with \"standard_user\" and \"wrong_pass\"",
+                              "duration": 86
+                            },
+                            {
+                              "title": "Then I should see the error message \"Epic sadface: Username and password do not match any user in this service\"",
+                              "duration": 19
+                            }
+                          ],
+                          "startTime": "2026-01-14T14:30:43.736Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d072502f32e4ac34ed4c-2bb56f308c8689e566a3",
+                  "file": "tests/features/login.feature.spec.js",
+                  "line": 48,
+                  "column": 9
+                },
+                {
+                  "title": "Example #3",
+                  "ok": true,
+                  "tags": ["authentication", "negative", "invalid-credentials"],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 4,
+                          "status": "passed",
+                          "duration": 2258,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Given I am on the login page",
+                              "duration": 119
+                            },
+                            {
+                              "title": "When I login with \"\" and \"secret_sauce\"",
+                              "duration": 162
+                            },
+                            {
+                              "title": "Then I should see the error message \"Epic sadface: Username is required\"",
+                              "duration": 17
+                            }
+                          ],
+                          "startTime": "2026-01-14T14:30:46.331Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d072502f32e4ac34ed4c-4c4672fa508e17dd0e71",
+                  "file": "tests/features/login.feature.spec.js",
+                  "line": 54,
+                  "column": 9
+                },
+                {
+                  "title": "Example #4",
+                  "ok": true,
+                  "tags": ["authentication", "negative", "invalid-credentials"],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 4,
+                          "status": "passed",
+                          "duration": 2711,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Given I am on the login page",
+                              "duration": 117
+                            },
+                            {
+                              "title": "When I login with \"standard_user\" and \"\"",
+                              "duration": 129
+                            },
+                            {
+                              "title": "Then I should see the error message \"Epic sadface: Password is required\"",
+                              "duration": 15
+                            }
+                          ],
+                          "startTime": "2026-01-14T14:30:48.612Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d072502f32e4ac34ed4c-c5f095f3acf6a8b62be8",
+                  "file": "tests/features/login.feature.spec.js",
+                  "line": 60,
+                  "column": 9
+                },
+                {
+                  "title": "Example #5",
+                  "ok": true,
+                  "tags": ["authentication", "negative", "invalid-credentials"],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 4,
+                          "status": "passed",
+                          "duration": 2332,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Given I am on the login page",
+                              "duration": 163
+                            },
+                            {
+                              "title": "When I login with \"\" and \"\"",
+                              "duration": 144
+                            },
+                            {
+                              "title": "Then I should see the error message \"Epic sadface: Username is required\"",
+                              "duration": 13
+                            }
+                          ],
+                          "startTime": "2026-01-14T14:30:51.349Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d072502f32e4ac34ed4c-0cdc58683d4c2b65f263",
+                  "file": "tests/features/login.feature.spec.js",
+                  "line": 66,
+                  "column": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\mobile.feature.spec.js",
+      "file": "tests/features/mobile.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Mobile Touch Testing",
+          "file": "tests/features/mobile.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Touch targets should be large enough for mobile",
+              "ok": true,
+              "tags": ["mobile", "touch", "touch-targets"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 9777,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📦 On inventory page\n"
+                        },
+                        {
+                          "text": "🔍 Checking 8 buttons for touch target size (min: 44px)...\n"
+                        },
+                        {
+                          "text": "⚠️ Buttons with small touch targets:\n"
+                        },
+                        {
+                          "text": "  - Open Menu (20x20)\n"
+                        },
+                        {
+                          "text": "  - Add to cart (160x34)\n"
+                        },
+                        {
+                          "text": "  - Add to cart (160x34)\n"
+                        },
+                        {
+                          "text": "  - Add to cart (160x34)\n"
+                        },
+                        {
+                          "text": "  - Add to cart (160x34)\n"
+                        },
+                        {
+                          "text": "  - Add to cart (160x34)\n"
+                        },
+                        {
+                          "text": "  - Add to cart (160x34)\n"
+                        },
+                        {
+                          "text": "✅ Touch target check: 1/8 buttons meet minimum size\n"
+                        },
+                        {
+                          "text": "  ⚠️ 7 buttons need larger touch targets for mobile\n"
+                        },
+                        {
+                          "text": "🔍 Checking 20 links for touch target size...\n"
+                        },
+                        {
+                          "text": "⚠️ Links with small touch targets:\n"
+                        },
+                        {
+                          "text": "  - link-4 (40x40)\n"
+                        },
+                        {
+                          "text": "  - Sauce Labs Backpack (299x20)\n"
+                        },
+                        {
+                          "text": "  - Sauce Labs Bike Light (299x20)\n"
+                        },
+                        {
+                          "text": "  - Sauce Labs Bolt T-Shirt (299x20)\n"
+                        },
+                        {
+                          "text": "  - Sauce Labs Fleece Jacket (299x20)\n"
+                        },
+                        {
+                          "text": "  ... and 5 more\n"
+                        },
+                        {
+                          "text": "✅ Link touch target check completed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page",
+                          "duration": 70
+                        },
+                        {
+                          "title": "Then all buttons should have adequate touch target size",
+                          "duration": 225
+                        },
+                        {
+                          "title": "And all links should have adequate touch target size",
+                          "duration": 343
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:14.851Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0223f3d1720f119c121-d54d626ded582c0e6f1e",
+              "file": "tests/features/mobile.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Page should be responsive on mobile viewport",
+              "ok": true,
+              "tags": ["mobile", "touch", "viewport"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 2251,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📦 On inventory page\n"
+                        },
+                        {
+                          "text": "📏 Page height: 1110px, Viewport: 720px\n"
+                        },
+                        {
+                          "text": "✅ Page is vertically scrollable\n"
+                        },
+                        {
+                          "text": "📏 Content width: 1280px, Viewport: 1280px\n"
+                        },
+                        {
+                          "text": "✅ No horizontal scrollbar detected\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page",
+                          "duration": 32
+                        },
+                        {
+                          "title": "Then the page should be scrollable vertically",
+                          "duration": 15
+                        },
+                        {
+                          "title": "And no horizontal scrollbar should appear",
+                          "duration": 6
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:25.295Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0223f3d1720f119c121-98c09472311de60089bc",
+              "file": "tests/features/mobile.feature.spec.js",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "Add to cart using touch interaction",
+              "ok": true,
+              "tags": ["mobile", "touch", "tap-interaction"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 2065,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📦 On inventory page\n"
+                        },
+                        {
+                          "text": "👆 Clicked \"Add to cart\" for \"Sauce Labs Backpack\" (tap not available)\n"
+                        },
+                        {
+                          "text": "✅ Cart badge shows 1 item(s)\n"
+                        },
+                        {
+                          "text": "✅ Button changed to \"Remove\"\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page",
+                          "duration": 40
+                        },
+                        {
+                          "title": "When I tap on the add to cart button for \"Sauce Labs Backpack\"",
+                          "duration": 71
+                        },
+                        {
+                          "title": "Then the cart badge should show \"1\" item",
+                          "duration": 33
+                        },
+                        {
+                          "title": "And the button should change to \"Remove\"",
+                          "duration": 10
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:27.588Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0223f3d1720f119c121-78d1f8814bf0e106b222",
+              "file": "tests/features/mobile.feature.spec.js",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "Navigate by swiping on product images",
+              "ok": true,
+              "tags": ["mobile", "touch", "swipe"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 2648,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📦 On product detail page\n"
+                        },
+                        {
+                          "text": "✅ Navigated back to products (via back button)\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on a product detail page",
+                          "duration": 67
+                        },
+                        {
+                          "title": "Then I should be able to navigate back",
+                          "duration": 72
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:29.683Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0223f3d1720f119c121-e38a55468c828a5396d9",
+              "file": "tests/features/mobile.feature.spec.js",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "Page should display correctly in portrait mode",
+              "ok": true,
+              "tags": ["mobile", "touch", "orientation", "portrait"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 2865,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📱 Viewport set to portrait (393x851)\n"
+                        },
+                        {
+                          "text": "✅ Page is in portrait layout\n"
+                        },
+                        {
+                          "text": "✅ 6 products visible in portrait grid\n"
+                        },
+                        {
+                          "text": "📏 Menu button size: 20x20px\n"
+                        },
+                        {
+                          "text": "✅ Menu button is accessible\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page in portrait orientation",
+                          "duration": 638
+                        },
+                        {
+                          "title": "Then the page layout should be optimized for portrait",
+                          "duration": 2
+                        },
+                        {
+                          "title": "And all products should be visible in a single column or grid",
+                          "duration": 44
+                        },
+                        {
+                          "title": "And the menu button should be accessible",
+                          "duration": 29
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:32.360Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0223f3d1720f119c121-7330fac7db0243466b65",
+              "file": "tests/features/mobile.feature.spec.js",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "Page should display correctly in landscape mode",
+              "ok": true,
+              "tags": ["mobile", "touch", "orientation", "landscape"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 4378,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📱 Viewport set to landscape (851x393)\n"
+                        },
+                        {
+                          "text": "✅ Page is in landscape layout\n"
+                        },
+                        {
+                          "text": "📊 Layout: Stacked in landscape\n"
+                        },
+                        {
+                          "text": "✅ Products visible in landscape mode\n"
+                        },
+                        {
+                          "text": "✅ Navigation elements functional in landscape\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page in landscape orientation",
+                          "duration": 664
+                        },
+                        {
+                          "title": "Then the page layout should adjust for landscape",
+                          "duration": 3
+                        },
+                        {
+                          "title": "And more products should be visible horizontally",
+                          "duration": 81
+                        },
+                        {
+                          "title": "And navigation elements should remain functional",
+                          "duration": 21
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:35.262Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0223f3d1720f119c121-aa0718ae4b2e2c577c23",
+              "file": "tests/features/mobile.feature.spec.js",
+              "line": 37,
+              "column": 7
+            },
+            {
+              "title": "Page should handle orientation change gracefully",
+              "ok": true,
+              "tags": ["mobile", "touch", "orientation", "rotate"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 7272,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📱 Viewport set to portrait (393x851)\n"
+                        },
+                        {
+                          "text": "🔄 Rotated to landscape (851x393)\n"
+                        },
+                        {
+                          "text": "✅ Page re-rendered correctly after rotation\n"
+                        },
+                        {
+                          "text": "✅ No content cut off\n"
+                        },
+                        {
+                          "text": "🔄 Rotated back to portrait (393x851)\n"
+                        },
+                        {
+                          "text": "✅ Returned to portrait layout successfully\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page in portrait orientation",
+                          "duration": 655
+                        },
+                        {
+                          "title": "When I rotate the device to landscape",
+                          "duration": 533
+                        },
+                        {
+                          "title": "Then the page should re-render correctly",
+                          "duration": 50
+                        },
+                        {
+                          "title": "And no content should be cut off",
+                          "duration": 20
+                        },
+                        {
+                          "title": "When I rotate the device back to portrait",
+                          "duration": 515
+                        },
+                        {
+                          "title": "Then the page should return to portrait layout",
+                          "duration": 10
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:39.669Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0223f3d1720f119c121-13ea06f407cf17f27d36",
+              "file": "tests/features/mobile.feature.spec.js",
+              "line": 44,
+              "column": 7
+            },
+            {
+              "title": "Checkout flow should work in both orientations",
+              "ok": true,
+              "tags": ["mobile", "touch", "orientation", "checkout"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 3673,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📱 Viewport set to portrait (393x851)\n"
+                        },
+                        {
+                          "text": "👆 Clicked add to cart (tap fallback)\n"
+                        },
+                        {
+                          "text": "✅ Navigated to checkout in portrait\n"
+                        },
+                        {
+                          "text": "🔄 Rotated to landscape (851x393)\n"
+                        },
+                        {
+                          "text": "✅ Checkout form usable in landscape\n"
+                        },
+                        {
+                          "text": "✅ Purchase completed successfully\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page in portrait orientation",
+                          "duration": 634
+                        },
+                        {
+                          "title": "When I add a product to cart using touch",
+                          "duration": 76
+                        },
+                        {
+                          "title": "And I navigate to checkout in portrait mode",
+                          "duration": 109
+                        },
+                        {
+                          "title": "And I rotate the device to landscape",
+                          "duration": 522
+                        },
+                        {
+                          "title": "Then the checkout form should be usable in landscape",
+                          "duration": 16
+                        },
+                        {
+                          "title": "And I should be able to complete the purchase",
+                          "duration": 151
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:46.972Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0223f3d1720f119c121-8d2d63fb396ff1cd3c1e",
+              "file": "tests/features/mobile.feature.spec.js",
+              "line": 53,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\network-errors.feature.spec.js",
+      "file": "tests/features/network-errors.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Network Error Handling",
+          "file": "tests/features/network-errors.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Application works even when images fail to load",
+              "ok": true,
+              "tags": ["negative", "network-mocking", "blocked-images"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2581,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔧 Mocked: All images will fail to load\n"
+                        },
+                        {
+                          "text": "✅ Page is functional even with broken images\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given the product images fail to load",
+                          "duration": 18
+                        },
+                        {
+                          "title": "Then the page should still be functional without images",
+                          "duration": 36
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:26.076Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fc6d406915bba7a5387d-ba8ef5fd1c7180d7f4c1",
+              "file": "tests/features/network-errors.feature.spec.js",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "Application handles slow network gracefully",
+              "ok": true,
+              "tags": ["negative", "network-mocking", "slow-network"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2617,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🐌 Simulating slow network: 1000ms delay\n"
+                        },
+                        {
+                          "text": "✅ Application loaded despite slow network\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I simulate slow network conditions",
+                          "duration": 5
+                        },
+                        {
+                          "title": "When I sort products by \"Price (low to high)\"",
+                          "duration": 23
+                        },
+                        {
+                          "title": "Then the application should handle slow network gracefully",
+                          "duration": 10
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:28.684Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fc6d406915bba7a5387d-c6d66bcdbc00a3bca996",
+              "file": "tests/features/network-errors.feature.spec.js",
+              "line": 16,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\performance.feature.spec.js",
+      "file": "tests/features/performance.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Performance Testing",
+          "file": "tests/features/performance.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Login page should load quickly",
+              "ok": true,
+              "tags": ["performance", "smoke"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3607,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n⚡ Page Load Metrics:\n"
+                        },
+                        {
+                          "text": "   DOM Content Loaded:    106ms\n"
+                        },
+                        {
+                          "text": "   Load Complete:         107ms\n"
+                        },
+                        {
+                          "text": "   First Contentful Paint: 132ms\n"
+                        },
+                        {
+                          "text": "   Largest Contentful Paint: 132ms\n"
+                        },
+                        {
+                          "text": "📊 Load Complete: 107ms (threshold: 3000ms)\n"
+                        },
+                        {
+                          "text": "\n⚡ Page Load Metrics:\n"
+                        },
+                        {
+                          "text": "   DOM Content Loaded:    106ms\n"
+                        },
+                        {
+                          "text": "   Load Complete:         107ms\n"
+                        },
+                        {
+                          "text": "   First Contentful Paint: 132ms\n"
+                        },
+                        {
+                          "text": "   Largest Contentful Paint: 132ms\n"
+                        },
+                        {
+                          "text": "📊 First Contentful Paint: 132ms (threshold: 2000ms)\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Then the page load time should be under 3000 milliseconds",
+                          "duration": 540
+                        },
+                        {
+                          "title": "And the first contentful paint should be under 2000 milliseconds",
+                          "duration": 520
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:31.414Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e90c6e8294afc5a17d3a-ede9e044abfa1f1703ec",
+              "file": "tests/features/performance.feature.spec.js",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "Inventory page should meet Core Web Vitals",
+              "ok": true,
+              "tags": ["performance", "core-web-vitals"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 7584,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n⚡ Page Load Metrics:\n"
+                        },
+                        {
+                          "text": "   DOM Content Loaded:    32ms\n"
+                        },
+                        {
+                          "text": "   Load Complete:         42ms\n"
+                        },
+                        {
+                          "text": "   First Contentful Paint: 52ms\n"
+                        },
+                        {
+                          "text": "   Largest Contentful Paint: 60ms\n"
+                        },
+                        {
+                          "text": "📊 Load Complete: 42ms (threshold: 3000ms)\n"
+                        },
+                        {
+                          "text": "\n⚡ Page Load Metrics:\n"
+                        },
+                        {
+                          "text": "   DOM Content Loaded:    32ms\n"
+                        },
+                        {
+                          "text": "   Load Complete:         42ms\n"
+                        },
+                        {
+                          "text": "   First Contentful Paint: 52ms\n"
+                        },
+                        {
+                          "text": "   Largest Contentful Paint: 60ms\n"
+                        },
+                        {
+                          "text": "📊 First Contentful Paint: 52ms (threshold: 2000ms)\n"
+                        },
+                        {
+                          "text": "\n⚡ Page Load Metrics:\n"
+                        },
+                        {
+                          "text": "   DOM Content Loaded:    32ms\n"
+                        },
+                        {
+                          "text": "   Load Complete:         42ms\n"
+                        },
+                        {
+                          "text": "   First Contentful Paint: 52ms\n"
+                        },
+                        {
+                          "text": "   Largest Contentful Paint: 60ms\n"
+                        },
+                        {
+                          "text": "📊 Largest Contentful Paint: 60ms (threshold: 4000ms)\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given the user logs in with valid credentials",
+                          "duration": 163
+                        },
+                        {
+                          "title": "When the user is on the inventory page",
+                          "duration": 494
+                        },
+                        {
+                          "title": "Then the page load time should be under 3000 milliseconds",
+                          "duration": 522
+                        },
+                        {
+                          "title": "And the first contentful paint should be under 2000 milliseconds",
+                          "duration": 516
+                        },
+                        {
+                          "title": "And the largest contentful paint should be under 4000 milliseconds",
+                          "duration": 520
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:35.053Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e90c6e8294afc5a17d3a-9f247850e1c4023b0e06",
+              "file": "tests/features/performance.feature.spec.js",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "Page resources should be optimized",
+              "ok": true,
+              "tags": ["performance", "resources"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 4386,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n📦 Resource Metrics:\n"
+                        },
+                        {
+                          "text": "   Total Resources: 14\n"
+                        },
+                        {
+                          "text": "   Total Size:      0.00 KB\n"
+                        },
+                        {
+                          "text": "📊 Total Resources: 14 (threshold: 50)\n"
+                        },
+                        {
+                          "text": "\n📦 Resource Metrics:\n"
+                        },
+                        {
+                          "text": "   Total Resources: 14\n"
+                        },
+                        {
+                          "text": "   Total Size:      0.00 KB\n"
+                        },
+                        {
+                          "text": "📊 Total Size: 0.00 KB (threshold: 2000 KB)\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given the user logs in with valid credentials",
+                          "duration": 226
+                        },
+                        {
+                          "title": "When the user is on the inventory page",
+                          "duration": 490
+                        },
+                        {
+                          "title": "Then the total resources should be under 50",
+                          "duration": 14
+                        },
+                        {
+                          "title": "And the total resource size should be under 2000 KB",
+                          "duration": 10
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:42.665Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e90c6e8294afc5a17d3a-6f750c2ee69e4664d351",
+              "file": "tests/features/performance.feature.spec.js",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "Inventory page should pass Lighthouse audit",
+              "ok": true,
+              "tags": ["performance", "lighthouse"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 4096,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "⚠️ Lighthouse audit requires Chrome debugging port. Using simple performance metrics instead.\n"
+                        },
+                        {
+                          "text": "📊 Minimum performance score threshold: 50\n"
+                        },
+                        {
+                          "text": "\n⚡ Page Load Metrics:\n"
+                        },
+                        {
+                          "text": "   DOM Content Loaded:    30ms\n"
+                        },
+                        {
+                          "text": "   Load Complete:         40ms\n"
+                        },
+                        {
+                          "text": "   First Contentful Paint: 56ms\n"
+                        },
+                        {
+                          "text": "   Largest Contentful Paint: 72ms\n"
+                        },
+                        {
+                          "text": "📊 Estimated Performance Score: 90\n"
+                        },
+                        {
+                          "text": "⚠️ For detailed accessibility scores, use @accessibility tagged tests\n"
+                        },
+                        {
+                          "text": "📊 Minimum accessibility score threshold: 80\n"
+                        },
+                        {
+                          "text": "📊 Basic Accessibility Checks: 1/3\n"
+                        },
+                        {
+                          "text": "📊 Estimated Accessibility Score: 33\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given the user logs in with valid credentials",
+                          "duration": 191
+                        },
+                        {
+                          "title": "When the user is on the inventory page",
+                          "duration": 493
+                        },
+                        {
+                          "title": "Then the Lighthouse performance score should be at least 50",
+                          "duration": 530
+                        },
+                        {
+                          "title": "And the Lighthouse accessibility score should be at least 80",
+                          "duration": 18
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:47.078Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e90c6e8294afc5a17d3a-1668cfdaf1e87a2e7268",
+              "file": "tests/features/performance.feature.spec.js",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "Compare performance across pages",
+              "ok": true,
+              "tags": ["performance", "comparison"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 6075,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n📊 Measuring performance for: inventory\n"
+                        },
+                        {
+                          "text": "\n⚡ Page Load Metrics:\n"
+                        },
+                        {
+                          "text": "   DOM Content Loaded:    30ms\n"
+                        },
+                        {
+                          "text": "   Load Complete:         36ms\n"
+                        },
+                        {
+                          "text": "   First Contentful Paint: 52ms\n"
+                        },
+                        {
+                          "text": "   Largest Contentful Paint: 52ms\n"
+                        },
+                        {
+                          "text": "\n📊 Measuring performance for: cart\n"
+                        },
+                        {
+                          "text": "\n⚡ Page Load Metrics:\n"
+                        },
+                        {
+                          "text": "   DOM Content Loaded:    17ms\n"
+                        },
+                        {
+                          "text": "   Load Complete:         21ms\n"
+                        },
+                        {
+                          "text": "   First Contentful Paint: 32ms\n"
+                        },
+                        {
+                          "text": "   Largest Contentful Paint: 32ms\n"
+                        },
+                        {
+                          "text": "\n📊 Performance Comparison (threshold: 3000ms):\n"
+                        },
+                        {
+                          "text": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+                        },
+                        {
+                          "text": "   ✅ inventory: 36ms\n"
+                        },
+                        {
+                          "text": "   ✅ cart: 21ms\n"
+                        },
+                        {
+                          "text": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given the user logs in with valid credentials",
+                          "duration": 183
+                        },
+                        {
+                          "title": "When the user measures performance on multiple pages",
+                          "duration": 2868
+                        },
+                        {
+                          "title": "Then all pages should load under 3000 milliseconds",
+                          "duration": 2
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:51.206Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e90c6e8294afc5a17d3a-2e8ff4bf585aff57c750",
+              "file": "tests/features/performance.feature.spec.js",
+              "line": 37,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\security.feature.spec.js",
+      "file": "tests/features/security.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Security Testing",
+          "file": "tests/features/security.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Login form should handle XSS attempts safely",
+              "ok": true,
+              "tags": ["security", "xss"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3046,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ No XSS script executed\n"
+                        },
+                        {
+                          "text": "✅ Error message displayed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 106
+                        },
+                        {
+                          "title": "When I login with \"<script>alert('XSS')</script>\" and \"password\"",
+                          "duration": 105
+                        },
+                        {
+                          "title": "Then the XSS script should not execute",
+                          "duration": 512
+                        },
+                        {
+                          "title": "And I should see an error message",
+                          "duration": 5
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:33.322Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0ddae11c93c5bd4c7a95-112547dd492bb43fcc66",
+              "file": "tests/features/security.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Checkout form should sanitize XSS input",
+              "ok": true,
+              "tags": ["security", "xss"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3124,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Logged in as standard_user\n"
+                        },
+                        {
+                          "text": "✅ Added product to cart\n"
+                        },
+                        {
+                          "text": "📝 Filled firstName with XSS payload\n"
+                        },
+                        {
+                          "text": "📝 Filled lastName with XSS payload\n"
+                        },
+                        {
+                          "text": "📝 Filled zipCode with XSS payload\n"
+                        },
+                        {
+                          "text": "✅ Form handled input safely (next step: true, error: false)\n"
+                        },
+                        {
+                          "text": "✅ No XSS script was executed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am logged in as a standard user",
+                          "duration": 532
+                        },
+                        {
+                          "title": "And I have added a product to the cart",
+                          "duration": 49
+                        },
+                        {
+                          "title": "When I navigate to checkout page",
+                          "duration": 98
+                        },
+                        {
+                          "title": "And I fill checkout with XSS payload:",
+                          "duration": 129
+                        },
+                        {
+                          "title": "Then the form should handle the input safely",
+                          "duration": 11
+                        },
+                        {
+                          "title": "And no script should be executed",
+                          "duration": 2
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:36.389Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0ddae11c93c5bd4c7a95-2050549f3dd7f74062d4",
+              "file": "tests/features/security.feature.spec.js",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "Login form should handle SQL injection attempts",
+              "ok": true,
+              "tags": ["security", "sql-injection"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6927,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Error message displayed\n"
+                        },
+                        {
+                          "text": "✅ SQL injection did not bypass authentication\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 122
+                        },
+                        {
+                          "title": "When I login with \"' OR '1'='1\" and \"' OR '1'='1\"",
+                          "duration": 139
+                        },
+                        {
+                          "title": "Then I should see an error message",
+                          "duration": 6
+                        },
+                        {
+                          "title": "And I should not be logged in",
+                          "duration": 2
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:39.541Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0ddae11c93c5bd4c7a95-3067ab6e0bfe8907a98f",
+              "file": "tests/features/security.feature.spec.js",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "Unauthorized access to protected pages should be blocked",
+              "ok": true,
+              "tags": ["security", "auth-boundary"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7481,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Cleared all session data\n"
+                        },
+                        {
+                          "text": "📍 inventory: Redirected to login ✅\n"
+                        },
+                        {
+                          "text": "📍 cart: Redirected to login ✅\n"
+                        },
+                        {
+                          "text": "📍 checkout: Redirected to login ✅\n"
+                        },
+                        {
+                          "text": "✅ All protected pages redirected: true\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am not logged in",
+                          "duration": 397
+                        },
+                        {
+                          "title": "When I try to access the protected pages:",
+                          "duration": 4598
+                        },
+                        {
+                          "title": "Then I should be redirected to the login page for each attempt",
+                          "duration": 3
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:46.506Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0ddae11c93c5bd4c7a95-673350ca123a4ae78267",
+              "file": "tests/features/security.feature.spec.js",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "Session should be invalidated after logout",
+              "ok": true,
+              "tags": ["security", "session"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4445,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Logged in as standard_user\n"
+                        },
+                        {
+                          "text": "✅ Logged out from application\n"
+                        },
+                        {
+                          "text": "✅ Redirected to login page\n"
+                        },
+                        {
+                          "text": "✅ Session error message displayed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am logged in as a standard user",
+                          "duration": 191
+                        },
+                        {
+                          "title": "When I logout from the application",
+                          "duration": 951
+                        },
+                        {
+                          "title": "And I try to access the inventory page directly",
+                          "duration": 640
+                        },
+                        {
+                          "title": "Then I should be redirected to the login page",
+                          "duration": 14
+                        },
+                        {
+                          "title": "And I should see a session error message",
+                          "duration": 9
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:54.010Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0ddae11c93c5bd4c7a95-cc24784204beb4d32634",
+              "file": "tests/features/security.feature.spec.js",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "Response should include security headers",
+              "ok": true,
+              "tags": ["security", "headers", "skip"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Practice\\sauce-demo\\.features-gen\\tests\\features\\security.feature.spec.js",
+                        "line": 43,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-14T14:30:58.474Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "C:\\Practice\\sauce-demo\\.features-gen\\tests\\features\\security.feature.spec.js",
+                            "line": 43,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0ddae11c93c5bd4c7a95-4132e82ea5a2d2f6cfc5",
+              "file": "tests/features/security.feature.spec.js",
+              "line": 43,
+              "column": 8
+            },
+            {
+              "title": "Sensitive data should not appear in URL",
+              "ok": true,
+              "tags": ["security", "url"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1988,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Logged in as standard_user\n"
+                        },
+                        {
+                          "text": "✅ Purchase completed\n"
+                        },
+                        {
+                          "text": "✅ No sensitive information in URL\n"
+                        },
+                        {
+                          "text": "✅ No personal data in URL\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am logged in as a standard user",
+                          "duration": 139
+                        },
+                        {
+                          "title": "When I complete a purchase with test data",
+                          "duration": 228
+                        },
+                        {
+                          "title": "Then the confirmation URL should not contain sensitive information",
+                          "duration": 7
+                        },
+                        {
+                          "title": "And the URL should not include any personal data",
+                          "duration": 8
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:58.477Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0ddae11c93c5bd4c7a95-202d14aa6c918d2de394",
+              "file": "tests/features/security.feature.spec.js",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "Application should prevent open redirects",
+              "ok": true,
+              "tags": ["security", "open-redirect"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3726,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔍 Tested: https://www.saucedemo.com?redirect=https://evil.com\n"
+                        },
+                        {
+                          "text": "🔍 Tested: https://www.saucedemo.com?next=https://evil.com\n"
+                        },
+                        {
+                          "text": "🔍 Tested: https://www.saucedemo.com?url=https://evil.com\n"
+                        },
+                        {
+                          "text": "🔍 Tested: https://www.saucedemo.com?returnUrl=https://evil.com\n"
+                        },
+                        {
+                          "text": "✅ No open redirect vulnerability - stayed on www.saucedemo.com\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 36
+                        },
+                        {
+                          "title": "When I try to access a malicious redirect URL",
+                          "duration": 2129
+                        },
+                        {
+                          "title": "Then I should not be redirected to an external site",
+                          "duration": 2
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:31:00.485Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0ddae11c93c5bd4c7a95-293d66fdb2d413bcd33f",
+              "file": "tests/features/security.feature.spec.js",
+              "line": 56,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\shopping.feature.spec.js",
+      "file": "tests/features/shopping.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Shopping and Checkout Functionality",
+          "file": "tests/features/shopping.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Sort products by price low to high",
+              "ok": true,
+              "tags": ["regression", "shopping", "REQ-SHOP-001"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1862,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "When I sort products by \"Price (low to high)\"",
+                          "duration": 30
+                        },
+                        {
+                          "title": "Then the product prices should be sorted in ascending order",
+                          "duration": 29
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:34.574Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c78af3032aa3a265c536-5ef8d0e489721eac291b",
+              "file": "tests/features/shopping.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Successful checkout process (End-to-End)",
+              "ok": true,
+              "tags": ["regression", "shopping", "e2e", "REQ-SHOP-002"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2408,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "When I add \"Sauce Labs Backpack\" to cart",
+                          "duration": 55
+                        },
+                        {
+                          "title": "And I go to cart page",
+                          "duration": 46
+                        },
+                        {
+                          "title": "And I proceed to checkout",
+                          "duration": 47
+                        },
+                        {
+                          "title": "And I fill checkout information with:",
+                          "duration": 91
+                        },
+                        {
+                          "title": "And I finish the checkout",
+                          "duration": 59
+                        },
+                        {
+                          "title": "Then I should see the order confirmation message \"Thank you for your order!\"",
+                          "duration": 10
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:36.457Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c78af3032aa3a265c536-37c6a8197adb653e393f",
+              "file": "tests/features/shopping.feature.spec.js",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "Remove product from cart on homepage",
+              "ok": true,
+              "tags": ["regression", "shopping", "REQ-SHOP-003"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3350,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I add \"Sauce Labs Backpack\" to cart",
+                          "duration": 50
+                        },
+                        {
+                          "title": "When I remove \"Sauce Labs Backpack\" from the inventory",
+                          "duration": 46
+                        },
+                        {
+                          "title": "Then the cart badge should not be visible",
+                          "duration": 7
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:38.894Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c78af3032aa3a265c536-df42c057349184266cfa",
+              "file": "tests/features/shopping.feature.spec.js",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "Verify product images are not broken",
+              "ok": true,
+              "tags": ["regression", "shopping", "broken-images", "REQ-UI-001"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3207,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 284
+                        },
+                        {
+                          "title": "When I login with valid credentials",
+                          "duration": 94
+                        },
+                        {
+                          "title": "Then all product images should load correctly",
+                          "duration": 33
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:42.278Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c78af3032aa3a265c536-29fc0d1bf69f2e64157a",
+              "file": "tests/features/shopping.feature.spec.js",
+              "line": 26,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\social.feature.spec.js",
+      "file": "tests/features/social.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Social Media Links - Multi-Tab Testing",
+          "file": "tests/features/social.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Open LinkedIn link in a new tab",
+              "ok": true,
+              "tags": ["social", "multi-tab", "smoke"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4958,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📱 New tab opened for LinkedIn\n"
+                        },
+                        {
+                          "text": "🔗 New tab URL: https://www.linkedin.com/company/sauce-labs/\n"
+                        },
+                        {
+                          "text": "✅ New tab closed successfully\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "When I click on the LinkedIn link",
+                          "duration": 1143
+                        },
+                        {
+                          "title": "Then a new tab should open with URL containing \"linkedin.com\"",
+                          "duration": 9
+                        },
+                        {
+                          "title": "And the new tab should be closed after verification",
+                          "duration": 4
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:43.126Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9e912689a339393d901d-75b2361806489f52fa3b",
+              "file": "tests/features/social.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Verify all social links have valid href attributes",
+              "ok": true,
+              "tags": ["social", "multi-tab"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2534,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Twitter: https://twitter.com/saucelabs\n"
+                        },
+                        {
+                          "text": "✅ Facebook: https://www.facebook.com/saucelabs\n"
+                        },
+                        {
+                          "text": "✅ LinkedIn: https://www.linkedin.com/company/sauce-labs/\n"
+                        },
+                        {
+                          "text": "📊 Found 3 social media links\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Then all social media links should have valid URLs",
+                          "duration": 61
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:48.106Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9e912689a339393d901d-aec37929167b0e64c87e",
+              "file": "tests/features/social.feature.spec.js",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\storage.feature.spec.js",
+      "file": "tests/features/storage.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Storage Management",
+          "file": "tests/features/storage.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Cart items should persist after page reload",
+              "ok": true,
+              "tags": ["storage", "regression", "persistence"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3071,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔄 Page reloaded\n"
+                        },
+                        {
+                          "text": "✅ Cart badge shows 1 item(s)\n"
+                        },
+                        {
+                          "text": "✅ Product \"Sauce Labs Backpack\" button shows \"Remove\"\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "When I add \"Sauce Labs Backpack\" to cart",
+                          "duration": 56
+                        },
+                        {
+                          "title": "And I reload the page",
+                          "duration": 188
+                        },
+                        {
+                          "title": "Then the cart badge should show \"1\" item",
+                          "duration": 34
+                        },
+                        {
+                          "title": "And the \"Sauce Labs Backpack\" button should show \"Remove\"",
+                          "duration": 10
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:45.546Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44b585219896518c202a-97bd4fc76b6159c432d0",
+              "file": "tests/features/storage.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Multiple cart items should persist after page reload",
+              "ok": true,
+              "tags": ["storage", "regression", "persistence"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2685,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔄 Page reloaded\n"
+                        },
+                        {
+                          "text": "✅ Cart badge shows 2 items\n"
+                        },
+                        {
+                          "text": "✅ Cart contains \"Sauce Labs Backpack\"\n"
+                        },
+                        {
+                          "text": "✅ Cart contains \"Sauce Labs Bike Light\"\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "When I add \"Sauce Labs Backpack\" to cart",
+                          "duration": 64
+                        },
+                        {
+                          "title": "And I add \"Sauce Labs Bike Light\" to cart",
+                          "duration": 39
+                        },
+                        {
+                          "title": "And I reload the page",
+                          "duration": 133
+                        },
+                        {
+                          "title": "Then the cart badge should show \"2\" items",
+                          "duration": 30
+                        },
+                        {
+                          "title": "And I go to cart page",
+                          "duration": 33
+                        },
+                        {
+                          "title": "Then the cart should contain \"Sauce Labs Backpack\"",
+                          "duration": 10
+                        },
+                        {
+                          "title": "And the cart should contain \"Sauce Labs Bike Light\"",
+                          "duration": 8
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:48.643Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44b585219896518c202a-b168ffbb39558b1575ce",
+              "file": "tests/features/storage.feature.spec.js",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "Cart should be empty after clearing local storage",
+              "ok": true,
+              "tags": ["storage", "regression", "session"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2071,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📦 On inventory page\n"
+                        },
+                        {
+                          "text": "🗑️ Local storage cleared\n"
+                        },
+                        {
+                          "text": "🔄 Page reloaded\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page",
+                          "duration": 32
+                        },
+                        {
+                          "title": "When I add \"Sauce Labs Backpack\" to cart",
+                          "duration": 61
+                        },
+                        {
+                          "title": "And I clear the local storage",
+                          "duration": 5
+                        },
+                        {
+                          "title": "And I reload the page",
+                          "duration": 184
+                        },
+                        {
+                          "title": "Then the cart badge should not be visible",
+                          "duration": 20
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:51.358Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44b585219896518c202a-1c2c22867abfcad34e9f",
+              "file": "tests/features/storage.feature.spec.js",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "Verify session cookies are set correctly",
+              "ok": true,
+              "tags": ["storage", "regression", "cookies"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 5369,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📦 On inventory page\n"
+                        },
+                        {
+                          "text": "🍪 Session Cookies Check:\n"
+                        },
+                        {
+                          "text": "  Total cookies: 1\n"
+                        },
+                        {
+                          "text": "  - session-username: standard_user...\n"
+                        },
+                        {
+                          "text": "    Domain: www.saucedemo.com\n"
+                        },
+                        {
+                          "text": "    Path: /\n"
+                        },
+                        {
+                          "text": "    Secure: false\n"
+                        },
+                        {
+                          "text": "    HttpOnly: false\n"
+                        },
+                        {
+                          "text": "    Expires: 2026-01-14T14:40:09.000Z\n"
+                        },
+                        {
+                          "text": "✅ Cookie presence check completed\n"
+                        },
+                        {
+                          "text": "🔐 Cookie Attributes Audit:\n"
+                        },
+                        {
+                          "text": "  ⚠️ Security recommendations:\n"
+                        },
+                        {
+                          "text": "    - session-username: Missing 'Secure' flag\n"
+                        },
+                        {
+                          "text": "    - session-username: Session cookie missing 'HttpOnly' flag\n"
+                        },
+                        {
+                          "text": "✅ Cookie attributes audit completed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the inventory page",
+                          "duration": 27
+                        },
+                        {
+                          "title": "Then the session cookies should be present",
+                          "duration": 9
+                        },
+                        {
+                          "title": "And the cookies should have correct attributes",
+                          "duration": 4
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:53.459Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44b585219896518c202a-23a28f5435f4f68bfcf4",
+              "file": "tests/features/storage.feature.spec.js",
+              "line": 31,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\features\\ui.feature.spec.js",
+      "file": "tests/features/ui.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Visual Regression Testing",
+          "file": "tests/features/ui.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Login page UI matches design",
+              "ok": true,
+              "tags": ["visual"],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2475,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given I am on the login page",
+                          "duration": 320
+                        },
+                        {
+                          "title": "Then the login page should look exactly like the design",
+                          "duration": 216
+                        }
+                      ],
+                      "startTime": "2026-01-14T14:30:50.681Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02f49f74efad8755fe82-3894dface7827b5341d7",
+              "file": "tests/features/ui.feature.spec.js",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-01-14T14:30:01.544Z",
+    "duration": 62855.53799999999,
+    "expected": 61,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

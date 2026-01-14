@@ -8,7 +8,13 @@ async function globalSetup() {
   const page = await context.newPage();
 
   try {
-    await page.goto(`${BASE_URL}/`);
+    const response = await page.goto(`${BASE_URL}/`);
+
+    if (!response || response.status() !== 200) {
+      throw new Error(
+        `❌ Health Check Failed: Unable to access ${BASE_URL} (Status: ${response?.status()})`
+      );
+    }
 
     await page.waitForLoadState('networkidle');
 
