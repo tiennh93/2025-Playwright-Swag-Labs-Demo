@@ -73,9 +73,14 @@ When('I clear the local storage', async ({ page }) => {
 // ============================================
 
 Given('I am on the inventory page', async ({ page }) => {
-  // Ensures we're on the inventory page (via storageState)
-  await page.waitForURL(/.*inventory.*/);
+  // Check if already on inventory page
+  const currentUrl = page.url();
+  if (!currentUrl.includes('inventory')) {
+    // Navigate to inventory page (storageState should handle auth)
+    await page.goto('/inventory.html');
+  }
   await page.waitForLoadState('domcontentloaded');
+  await page.waitForSelector('.inventory_list', { timeout: 10000 });
   console.log('📦 On inventory page');
 });
 

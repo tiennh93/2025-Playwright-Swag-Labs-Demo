@@ -1,6 +1,6 @@
 # Sauce Demo - Playwright Checklist (Project-Specific)
 
-> **Version:** 2.1  
+> **Version:** 2.2  
 > **Last Updated:** 2026-01-14  
 > **Project:** Sauce Demo E2E Testing  
 > **Template:** Based on `playwright-checklist.md` v2.0
@@ -13,10 +13,10 @@ This checklist tracks the implementation status of best practices for the **Sauc
 
 | Metric                | Value                                        |
 | --------------------- | -------------------------------------------- |
-| **Overall Progress**  | **111/145 (76.6%)**                          |
+| **Overall Progress**  | **119/145 (82.1%)**                          |
 | **Core Features**     | 87/87 (100%)                                 |
-| **Advanced Features** | 24/58 (41.4%)                                |
-| **Test Cases**        | 35+ tests                                    |
+| **Advanced Features** | 32/58 (55.2%)                                |
+| **Test Cases**        | 40+ tests                                    |
 | **Browsers**          | 4 (chromium, firefox, webkit, Mobile Chrome) |
 
 ### By Category
@@ -43,18 +43,18 @@ This checklist tracks the implementation status of best practices for the **Sauc
 | 18. Cross-Browser             | 3/3      | ✅ 100% |
 | 19. Console Monitoring        | 5/5      | ✅ 100% |
 | 20. Geolocation               | 0/5      | ⬜ N/A  |
-| 21. Flaky Test Management     | 2/5      | 🔸 40%  |
+| 21. Flaky Test Management     | 4/5      | 🔸 80%  |
 | 22. Custom Reporters          | 2/5      | 🔸 40%  |
 | 23. Multi-tab Testing         | 4/4      | ✅ 100% |
 | 24. Keyboard Navigation       | 5/5      | ✅ 100% |
 | 25. Storage Management        | 4/4      | ✅ 100% |
-| 26. Mobile Gestures           | 1/5      | 🔸 20%  |
+| 26. Mobile Gestures           | 3/5      | 🔸 60%  |
 | 27. Security Testing          | 0/5      | ⬜ N/A  |
 | 28. Performance Testing       | 0/5      | ⬜ N/A  |
-| 29. Test Data Factories       | 1/4      | 🔸 25%  |
+| 29. Test Data Factories       | 4/4      | ✅ 100% |
 | 30. PDF Testing               | 0/3      | ⬜ N/A  |
 | 31. Authentication            | 5/6      | 🔸 83%  |
-| 32. Documentation             | 3/5      | 🔸 60%  |
+| 32. Documentation             | 4/5      | 🔸 80%  |
 | 33. Retry Patterns            | 5/5      | ✅ 100% |
 
 **Legend:** ✅ Complete | 🔸 Partial | ⬜ Not Applicable/Not Started
@@ -62,10 +62,10 @@ This checklist tracks the implementation status of best practices for the **Sauc
 ### Quick Stats
 
 ```
-██████████████████████░░░░░░ 76.6% Complete
+████████████████████████░░░░ 82.1% Complete
 
 ✅ Core (1-19):     87/87  items (100%)
-🔸 Advanced (20-33): 24/58 items (41%)
+🔸 Advanced (20-33): 32/58 items (55%)
 ⬜ N/A:             18 items (skipped)
 ```
 
@@ -286,8 +286,8 @@ This checklist tracks the implementation status of best practices for the **Sauc
 
 - [x] `retries` configured in CI (2 retries).
 - [x] Run tests multiple times to detect flaky tests. ✅ `scripts/flaky-test.ps1`
-- [ ] Quarantine flaky tests.
-- [ ] Track flaky test rate.
+- [x] Quarantine flaky tests. ✅ `scripts/quarantine.ps1` + `@flaky` tag
+- [x] Track flaky test rate. ✅ `scripts/flaky-history.ps1` + `npm run test:flaky:report`
 - [ ] Fix root causes.
 
 ---
@@ -342,10 +342,16 @@ This checklist tracks the implementation status of best practices for the **Sauc
 ## 26. Mobile Gestures & Touch Testing
 
 - [x] Mobile Chrome project configured.
-- [ ] Enable `hasTouch: true`.
+- [x] Enable `hasTouch: true`. ✅ `playwright.config.ts`
 - [ ] Test swipe gestures on product carousel.
-- [ ] Verify touch targets are large enough.
+- [x] Verify touch targets are large enough. ✅ `mobile.feature` @touch-targets
 - [ ] Test landscape/portrait.
+
+**Implementation Notes:**
+
+- Mobile testing with `npm run test:mobile`
+- Touch target size check (min 44x44px per WCAG 2.5.5)
+- Tap interactions using Playwright's `.tap()` method
 
 **Priority:** Low - Basic mobile viewport testing is done.
 
@@ -378,9 +384,15 @@ This checklist tracks the implementation status of best practices for the **Sauc
 ## 29. Test Data Factories
 
 - [x] Using Faker for data generation.
-- [ ] Create UserFactory class.
-- [ ] Create ProductFactory class.
-- [ ] Provide presets for common scenarios.
+- [x] Create UserFactory class. ✅ `tests/factories/user-factory.ts`
+- [x] Create ProductFactory class. ✅ `tests/factories/product-factory.ts`
+- [x] Provide presets for common scenarios. ✅ SAUCE_DEMO_USERS, SAUCE_DEMO_PRODUCTS
+
+**Implementation Notes:**
+
+- UserFactory: standard/invalid users, XSS/SQL injection vectors, checkout info
+- ProductFactory: all SauceDemo products, sorting helpers, cart calculations
+- Import from `tests/factories` for convenient usage
 
 **Priority:** Low - Current faker usage is sufficient.
 
@@ -419,13 +431,14 @@ This checklist tracks the implementation status of best practices for the **Sauc
 - [x] Use Gherkin features as user-facing documentation.
 - [x] Keep scenarios focused on WHAT, not HOW.
 - [x] Generate test reports (Allure). ✅ `allure-playwright`
-- [ ] Maintain a test coverage matrix.
+- [x] Maintain a test coverage matrix. ✅ `docs/test-coverage-matrix.md` + `npm run docs:coverage`
 - [ ] Link tests to requirements using tags (e.g., `@JIRA-123`).
 
 **Implementation Notes:**
 
 - Feature files in `tests/features/` serve as living documentation
 - Allure reports deployed to Vercel
+- Coverage matrix auto-generated from feature files
 
 ---
 

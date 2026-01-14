@@ -32,8 +32,15 @@ Then('I should see the error message {string}', async ({ loginPage }, message: s
 // Session Testing Steps
 // ============================================
 
-Given('I directly navigate to the inventory page', async ({ page }) => {
-  // Navigate directly without login (fresh context)
+Given('I directly navigate to the inventory page', async ({ page, context }) => {
+  // Clear all cookies and storage to simulate fresh context (not logged in)
+  await context.clearCookies();
+  await page.evaluate(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+  });
+
+  // Navigate directly without login
   await page.goto(`${BASE_URL}/inventory.html`);
 });
 

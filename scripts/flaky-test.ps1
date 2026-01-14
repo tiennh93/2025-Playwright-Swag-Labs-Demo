@@ -268,6 +268,18 @@ if ($flakyTests.Count -gt 0) {
     Write-Host ""
 }
 
+# Auto-record to history
+$totalTestCount = $stableTests.Count + $flakyTests.Count
+if ($totalTestCount -gt 0) {
+    $flakyNames = $flakyTests | ForEach-Object { $_.Name }
+    $scriptPath = Join-Path $PSScriptRoot "flaky-history.ps1"
+    if (Test-Path $scriptPath) {
+        & $scriptPath -Action record -FlakyTests $flakyNames -TotalTests $totalTestCount 2>&1 | Out-Null
+        Write-Host "Results saved to history. Run: .\scripts\flaky-history.ps1 -Action report" -ForegroundColor DarkGray
+        Write-Host ""
+    }
+}
+
 # Exit with appropriate code
 if ($flakyTests.Count -gt 0) {
     exit 1

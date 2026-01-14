@@ -23,11 +23,13 @@ Feature: Accessibility Testing
 
   @aria
   Scenario: Interactive elements should have proper ARIA labels
+    Given I am on the inventory page
     Then all buttons should have accessible names
     And the shopping cart should have an ARIA label
     And the menu button should have an ARIA label
 
   @aria
   Scenario: Navigation elements should have proper ARIA attributes
+    Given I am on the inventory page
     Then the sidebar menu should have proper ARIA attributes
     And the product list should have proper ARIA attributes

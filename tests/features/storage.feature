@@ -23,9 +23,10 @@ Feature: Storage Management
     And the cart should contain "Sauce Labs Bike Light"
 
   @session
-  Scenario: Cart should be empty after clearing session storage
+  Scenario: Cart should be empty after clearing local storage
+    Given I am on the inventory page
     When I add "Sauce Labs Backpack" to cart
-    And I clear the session storage
+    And I clear the local storage
     And I reload the page
     Then the cart badge should not be visible
 

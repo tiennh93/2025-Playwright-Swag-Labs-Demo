@@ -13,6 +13,7 @@ This folder contains PowerShell scripts for running Playwright tests.
 | `open-report.ps1` | Open existing reports               |
 | `debug-test.ps1`  | Debug specific tests with Inspector |
 | `flaky-test.ps1`  | Detect flaky tests by multiple runs |
+| `quarantine.ps1`  | Manage quarantined (@flaky) tests   |
 
 ## 🚀 Quick Start
 
