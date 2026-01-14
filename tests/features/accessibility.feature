@@ -20,3 +20,14 @@ Feature: Accessibility Testing
   Scenario: Form inputs should have proper labels
     Given I am on the login page
     Then all form inputs should have associated labels
+
+  @aria
+  Scenario: Interactive elements should have proper ARIA labels
+    Then all buttons should have accessible names
+    And the shopping cart should have an ARIA label
+    And the menu button should have an ARIA label
+
+  @aria
+  Scenario: Navigation elements should have proper ARIA attributes
+    Then the sidebar menu should have proper ARIA attributes
+    And the product list should have proper ARIA attributes

@@ -12,6 +12,7 @@
     "test:keyboard": "npx bddgen && npx playwright test --grep @keyboard",
     "test:strict": "set STRICT_CONSOLE=true && npx bddgen && npx playwright test",
     "test:smoke": "npx bddgen && npx playwright test --grep @smoke",
+    "test:flaky": "powershell -ExecutionPolicy Bypass -File ./scripts/flaky-test.ps1",
     "test:report": "npx allure generate -o ./allure-report ./allure-results",
     "test:report:open": "npm run test:report && npx allure open ./allure-report",
     "prepare": "husky install",

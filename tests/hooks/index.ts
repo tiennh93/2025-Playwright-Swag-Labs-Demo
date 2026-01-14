@@ -14,6 +14,7 @@ interface TestData {
   createdItems: string[];
   addedToCart: string[];
   consoleMonitor?: ConsoleErrorMonitor;
+  retryCount?: number;
 }
 
 // Enable strict console monitoring (auto-fail on errors)
@@ -23,10 +24,17 @@ Before(async ({ page, $testInfo }) => {
   log.info(`Starting: ${$testInfo.title}`);
   log.info(`Tags: ${$testInfo.tags.join(', ')}`);
 
+  // Log retry information if this is a retry attempt
+  if ($testInfo.retry > 0) {
+    log.warn(`🔄 RETRY ATTEMPT ${$testInfo.retry}/${$testInfo.project.retries}`);
+    log.warn(`Previous failure: ${$testInfo.error?.message || 'Unknown'}`);
+  }
+
   // Initialize test data storage for cleanup
   const testData: TestData = {
     createdItems: [],
     addedToCart: [],
+    retryCount: $testInfo.retry,
   };
 
   // Attach console error monitor

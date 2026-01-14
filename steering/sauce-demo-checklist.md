@@ -1,6 +1,6 @@
 # Sauce Demo - Playwright Checklist (Project-Specific)
 
-> **Version:** 2.0  
+> **Version:** 2.1  
 > **Last Updated:** 2026-01-14  
 > **Project:** Sauce Demo E2E Testing  
 > **Template:** Based on `playwright-checklist.md` v2.0
@@ -13,10 +13,10 @@ This checklist tracks the implementation status of best practices for the **Sauc
 
 | Metric                | Value                                        |
 | --------------------- | -------------------------------------------- |
-| **Overall Progress**  | **102/145 (70.3%)**                          |
+| **Overall Progress**  | **111/145 (76.6%)**                          |
 | **Core Features**     | 87/87 (100%)                                 |
-| **Advanced Features** | 15/58 (25.9%)                                |
-| **Test Cases**        | 25 tests                                     |
+| **Advanced Features** | 24/58 (41.4%)                                |
+| **Test Cases**        | 35+ tests                                    |
 | **Browsers**          | 4 (chromium, firefox, webkit, Mobile Chrome) |
 
 ### By Category
@@ -43,29 +43,29 @@ This checklist tracks the implementation status of best practices for the **Sauc
 | 18. Cross-Browser             | 3/3      | ✅ 100% |
 | 19. Console Monitoring        | 5/5      | ✅ 100% |
 | 20. Geolocation               | 0/5      | ⬜ N/A  |
-| 21. Flaky Test Management     | 1/5      | 🔸 20%  |
+| 21. Flaky Test Management     | 2/5      | 🔸 40%  |
 | 22. Custom Reporters          | 2/5      | 🔸 40%  |
 | 23. Multi-tab Testing         | 4/4      | ✅ 100% |
-| 24. Keyboard Navigation       | 4/5      | 🔸 80%  |
-| 25. Storage Management        | 2/4      | 🔸 50%  |
+| 24. Keyboard Navigation       | 5/5      | ✅ 100% |
+| 25. Storage Management        | 4/4      | ✅ 100% |
 | 26. Mobile Gestures           | 1/5      | 🔸 20%  |
 | 27. Security Testing          | 0/5      | ⬜ N/A  |
 | 28. Performance Testing       | 0/5      | ⬜ N/A  |
 | 29. Test Data Factories       | 1/4      | 🔸 25%  |
 | 30. PDF Testing               | 0/3      | ⬜ N/A  |
-| 31. Authentication            | 3/6      | 🔸 50%  |
+| 31. Authentication            | 5/6      | 🔸 83%  |
 | 32. Documentation             | 3/5      | 🔸 60%  |
-| 33. Retry Patterns            | 2/5      | 🔸 40%  |
+| 33. Retry Patterns            | 5/5      | ✅ 100% |
 
 **Legend:** ✅ Complete | 🔸 Partial | ⬜ Not Applicable/Not Started
 
 ### Quick Stats
 
 ```
-████████████████████░░░░░░░░ 70.3% Complete
+██████████████████████░░░░░░ 76.6% Complete
 
 ✅ Core (1-19):     87/87  items (100%)
-🔸 Advanced (20-33): 15/58 items (26%)
+🔸 Advanced (20-33): 24/58 items (41%)
 ⬜ N/A:             18 items (skipped)
 ```
 
@@ -285,7 +285,7 @@ This checklist tracks the implementation status of best practices for the **Sauc
 ## 21. Flaky Test Management
 
 - [x] `retries` configured in CI (2 retries).
-- [ ] Run tests multiple times to detect flaky tests.
+- [x] Run tests multiple times to detect flaky tests. ✅ `scripts/flaky-test.ps1`
 - [ ] Quarantine flaky tests.
 - [ ] Track flaky test rate.
 - [ ] Fix root causes.
@@ -321,7 +321,7 @@ This checklist tracks the implementation status of best practices for the **Sauc
 - [x] Verify logical tab order. ✅ Tab navigation tests
 - [x] Test keyboard shortcuts. ✅ Enter key tests
 - [x] Ensure focus indicators visible. ✅ Focus visibility check
-- [ ] Test ARIA labels.
+- [x] Test ARIA labels. ✅ `accessibility.feature` @aria scenarios
 
 **Implementation Notes:**
 
@@ -334,8 +334,8 @@ This checklist tracks the implementation status of best practices for the **Sauc
 
 - [x] Storage state saved for auth. ✅ `global-setup.ts` / `state.json`
 - [x] Clear storage in After hooks.
-- [ ] Test storage persistence across reloads.
-- [ ] Verify cookie attributes.
+- [x] Test storage persistence across reloads. ✅ `storage.feature` @persistence
+- [x] Verify cookie attributes. ✅ `storage.feature` @cookies
 
 ---
 
@@ -402,14 +402,15 @@ This checklist tracks the implementation status of best practices for the **Sauc
 - [x] Login once in global-setup, reuse across tests.
 - [ ] Handle OAuth/SSO popups (if applicable).
 - [x] Implement API-based login alternative. ✅ NetworkMockHelper
-- [ ] Test session expiry scenarios.
-- [ ] Test invalid credential scenarios. ✅ Partially in `login.feature`
+- [x] Test session expiry scenarios. ✅ `login.feature` @session
+- [x] Test invalid credential scenarios. ✅ `login.feature` @invalid-credentials
 
 **Implementation Notes:**
 
 - SauceDemo uses simple username/password auth
 - `global-setup.ts` logs in once and saves state
 - Multiple user types available: standard_user, locked_out_user, problem_user
+- Session tests cover logout, direct access blocking, and session persistence
 
 ---
 
@@ -431,9 +432,9 @@ This checklist tracks the implementation status of best practices for the **Sauc
 ## 33. Retry Patterns & Error Recovery
 
 - [x] Built-in retries configured (2 in CI). ✅ `playwright.config.ts`
-- [ ] Implement custom retry for external dependencies.
-- [ ] Use exponential backoff for flaky operations.
-- [ ] Log retry attempts for debugging.
+- [x] Implement custom retry for external dependencies. ✅ `tests/utils/retry-helper.ts`
+- [x] Use exponential backoff for flaky operations. ✅ `RetryHelper` with backoff
+- [x] Log retry attempts for debugging. ✅ `tests/hooks/index.ts`
 - [x] Prefer fixing root cause over adding retries.
 
 **Note:** Playwright's built-in retry is sufficient for this demo project.

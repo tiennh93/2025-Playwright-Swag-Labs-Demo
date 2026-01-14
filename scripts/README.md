@@ -12,6 +12,7 @@ This folder contains PowerShell scripts for running Playwright tests.
 | `full-test.ps1`   | Full cross-browser test suite       |
 | `open-report.ps1` | Open existing reports               |
 | `debug-test.ps1`  | Debug specific tests with Inspector |
+| `flaky-test.ps1`  | Detect flaky tests by multiple runs |
 
 ## 🚀 Quick Start
 
@@ -69,6 +70,15 @@ This folder contains PowerShell scripts for running Playwright tests.
 
 # Open HTML report
 .\scripts\open-report.ps1 -ReportType html
+
+# Detect flaky tests (runs 5 times by default)
+.\scripts\flaky-test.ps1
+
+# Detect flaky tests with 10 iterations
+.\scripts\flaky-test.ps1 -Iterations 10
+
+# Detect flaky tests in smoke tests only
+.\scripts\flaky-test.ps1 -Tag "@smoke"
 ```
 
 ## ⚠️ Requirements
