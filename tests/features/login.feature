@@ -1,13 +1,17 @@
 @authentication
 Feature: User Authentication
 
+  # REQ-AUTH-001: User can login with valid credentials
   @smoke
+  @REQ-AUTH-001
   Scenario: Login successfully with standard user
     Given I am on the login page
     When I login with valid credentials
     Then I should be redirected to the inventory page
 
+  # REQ-AUTH-002: Locked out users should be blocked
   @negative
+  @REQ-AUTH-002
   Scenario: Login failed with locked out user
     Given I am on the login page
     When I login with "locked_out_user" and "secret_sauce"
