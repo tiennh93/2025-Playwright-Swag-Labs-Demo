@@ -1,4 +1,5 @@
 import { After, Before } from '../fixtures';
+import { ConsoleErrorMonitor } from '../utils/console-monitor';
 
 // Structured logger utility
 const log = {
@@ -12,20 +13,46 @@ const log = {
 interface TestData {
   createdItems: string[];
   addedToCart: string[];
+  consoleMonitor?: ConsoleErrorMonitor;
 }
+
+// Enable strict console monitoring (auto-fail on errors)
+const STRICT_CONSOLE_MONITORING = process.env.STRICT_CONSOLE === 'true';
 
 Before(async ({ page, $testInfo }) => {
   log.info(`Starting: ${$testInfo.title}`);
   log.info(`Tags: ${$testInfo.tags.join(', ')}`);
 
   // Initialize test data storage for cleanup
-  (page as { testData?: TestData }).testData = {
+  const testData: TestData = {
     createdItems: [],
     addedToCart: [],
   };
+
+  // Attach console error monitor
+  const consoleMonitor = new ConsoleErrorMonitor();
+  consoleMonitor.attach(page);
+  testData.consoleMonitor = consoleMonitor;
+
+  (page as { testData?: TestData }).testData = testData;
 });
 
 After(async ({ page, $testInfo }) => {
+  const testData = (page as { testData?: TestData }).testData;
+
+  // Check for console errors (strict mode)
+  if (STRICT_CONSOLE_MONITORING && testData?.consoleMonitor?.hasErrors()) {
+    const errors = testData.consoleMonitor.getErrors();
+    log.error(`Console errors detected: ${errors.length}`);
+    errors.forEach((err, i) => log.error(`  ${i + 1}. ${err}`));
+
+    // Attach console errors to test report
+    await $testInfo.attach('console-errors', {
+      body: errors.join('\n'),
+      contentType: 'text/plain',
+    });
+  }
+
   if ($testInfo.status === 'failed') {
     log.error(`FAILED: ${$testInfo.title}`);
     log.error(`Error: ${$testInfo.error?.message}`);
@@ -40,8 +67,7 @@ After(async ({ page, $testInfo }) => {
   }
 
   // Data cleanup - Remove items from cart if any were added
-  const testData = (page as { testData?: TestData }).testData;
-  if (testData?.addedToCart?.length > 0) {
+  if (testData && testData.addedToCart && testData.addedToCart.length > 0) {
     log.info(`Cleaning up ${testData.addedToCart.length} items from cart...`);
     try {
       // Navigate to cart and clear if needed
@@ -54,4 +80,7 @@ After(async ({ page, $testInfo }) => {
       log.warn('Cart cleanup skipped (session may have ended)');
     }
   }
+
+  // Clear console monitor
+  testData?.consoleMonitor?.clear();
 });

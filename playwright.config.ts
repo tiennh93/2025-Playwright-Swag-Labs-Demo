@@ -23,6 +23,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   use: {
     baseURL: BASE_URL,
+    testIdAttribute: 'data-test',
     ...(storageState && { storageState }),
     headless: true,
     screenshot: 'only-on-failure',

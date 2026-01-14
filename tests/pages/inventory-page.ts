@@ -9,7 +9,9 @@ export class InventoryPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.sortDropdown = page.locator('[data-test="product-sort-container"]');
+    // Using getByTestId() with testIdAttribute: 'data-test' from config
+    this.sortDropdown = page.getByTestId('product-sort-container');
+    // CSS selectors for elements without data-test attribute
     this.inventoryItemPrice = page.locator('.inventory_item_price');
     this.linkedinLink = page.locator('a[href*="linkedin.com"]');
     this.productImages = page.locator('.inventory_item_img img');

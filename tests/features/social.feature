@@ -1,9 +1,15 @@
 @social
-Feature: Social Media and Multitasking (Multiple Tabs)
+@multi-tab
+Feature: Social Media Links - Multi-Tab Testing
+  As a user
+  I want to verify social media links work correctly
+  So that I can connect with the company on social platforms
 
-  # Background:
-  #   Given I am on the login page
-  #   And I login with "standard_user" and "secret_sauce"
-  Scenario: Open Linkedin link in a new tab
-    When I click on the Linkedin link
+  @smoke
+  Scenario: Open LinkedIn link in a new tab
+    When I click on the LinkedIn link
     Then a new tab should open with URL containing "linkedin.com"
+    And the new tab should be closed after verification
+
+  Scenario: Verify all social links have valid href attributes
+    Then all social media links should have valid URLs

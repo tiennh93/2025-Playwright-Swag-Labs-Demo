@@ -12,13 +12,14 @@ export class CheckoutPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.checkoutBtn = page.locator('[data-test="checkout"]');
-    this.firstNameInput = page.locator('[data-test="firstName"]');
-    this.lastNameInput = page.locator('[data-test="lastName"]');
-    this.postalCodeInput = page.locator('[data-test="postalCode"]');
-    this.continueBtn = page.locator('[data-test="continue"]');
-    this.finishBtn = page.locator('[data-test="finish"]');
-    this.completeHeader = page.locator('[data-test="complete-header"]');
+    // Using getByTestId() with testIdAttribute: 'data-test' from config
+    this.checkoutBtn = page.getByTestId('checkout');
+    this.firstNameInput = page.getByTestId('firstName');
+    this.lastNameInput = page.getByTestId('lastName');
+    this.postalCodeInput = page.getByTestId('postalCode');
+    this.continueBtn = page.getByTestId('continue');
+    this.finishBtn = page.getByTestId('finish');
+    this.completeHeader = page.getByTestId('complete-header');
   }
 
   async proceedToCheckout() {

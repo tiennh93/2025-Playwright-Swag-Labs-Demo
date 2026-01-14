@@ -5,10 +5,18 @@ on:
     branches:
       - main
       - develop
+  pull_request:
+    branches:
+      - main
 
 jobs:
   e2e:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Test sharding: Split tests into 4 parallel shards
+        shard: [1, 2, 3, 4]
     steps:
       - uses: actions/checkout@v4
 
@@ -41,16 +49,49 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run E2E tests
-        run: npm run test
-        id: tests
+      - name: Generate BDD tests
+        run: npx bddgen
 
-      - name: Generate Allure report
+      - name: Run E2E tests (Shard ${{ matrix.shard }}/4)
+        run: npx playwright test --shard=${{ matrix.shard }}/4
+        id: tests
+        env:
+          CI: true
+
+      - name: Upload test results
         if: always()
-        run: npx allure generate -o allure-report ./allure-results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-shard-${{ matrix.shard }}
+          path: allure-results/
+          retention-days: 7
+
+  # Aggregate results and deploy report
+  report:
+    needs: e2e
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download all shard results
+        uses: actions/download-artifact@v4
+        with:
+          path: all-results
+          pattern: allure-results-shard-*
+          merge-multiple: true
+
+      - name: Install Allure
+        run: npm install -g allure-commandline
+
+      - name: Generate combined Allure report
+        run: allure generate -o allure-report ./all-results
 
       - name: Deploy to Vercel
-        if: always()
         run: npx vercel deploy ./allure-report --token ${{ secrets.VERCEL_TOKEN }} --prod
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
